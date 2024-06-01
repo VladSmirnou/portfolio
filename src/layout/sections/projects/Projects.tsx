@@ -35,4 +35,8 @@ export const Projects = () => {
 const StyledProjects = styled.section`
   background-color: lightgrey;
   max-width: 992px;
+
+  div:nth-child(even) > img {
+    order: -1;
+  }
 `;

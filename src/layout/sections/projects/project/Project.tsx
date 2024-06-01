@@ -20,50 +20,21 @@ function getProjectData({ headingText: projectName }: { headingText: string }): 
 }
 
 
-function imgLeft(props: ProjectPropsType) {
-  const [
-    projectName,
-    projectId,
-    linkId,
-    labelledBy
-  ]: Array<string> = getProjectData(props);
-  return (
-    <>
-      <Image src={props.image} alt={props.alt}/>
-      <Info>
-        <Heading id={projectId}>{projectName}</Heading>
-        <TextWrapper tag={"p"} text={props.text}/>
-        <Link href={"#"} id={linkId} aria-labelledby={labelledBy}>View Project</Link>
-      </Info>
-    </>
-  )
-}
-
-
-function imgRight(props: ProjectPropsType) {
-  const [
-    projectName,
-    projectId,
-    linkId,
-    labelledBy
-  ]: Array<string> = getProjectData(props);
-  return (
-    <>
-      <Info>
-        <Heading id={projectId}>{projectName}</Heading>
-        <TextWrapper tag={"p"} text={props.text}/>
-        <Link href={"#"} id={linkId} aria-labelledby={labelledBy}>View Project</Link>
-      </Info>
-      <Image src={props.image} alt={props.alt}/>
-    </>
-  )
-}
-
-
 export const Project = (props: ProjectPropsType) => {
+  const [
+    projectName,
+    projectId,
+    linkId,
+    labelledBy
+  ]: Array<string> = getProjectData(props);
   return (
     <StyledProject>
-      {props.idx % 2 === 0 ? imgRight(props) : imgLeft(props)}
+      <Info>
+        <Heading id={projectId}>{projectName}</Heading>
+        <TextWrapper tag={"p"} text={props.text}/>
+        <Link href={"#"} id={linkId} aria-labelledby={labelledBy}>View Project</Link>
+      </Info>
+      <Image src={props.image} alt={props.alt}/>
     </StyledProject>
   )
 }

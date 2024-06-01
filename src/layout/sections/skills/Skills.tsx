@@ -7,20 +7,19 @@ import { Icon } from '../../../components/icon/Icon';
 
 
 const iconIDs = [
-    'vscode',
-    'js',
-    'css',
-    'html',
-    'greensock',
-    'spiral',
-    'boostrap',
-    'github',
-    'git',
-    'react',
-    'sass',
-    'tailwind',
+  'vscode',
+  'js',
+  'css',
+  'html',
+  'greensock',
+  'spiral',
+  'boostrap',
+  'github',
+  'git',
+  'react',
+  'sass',
+  'tailwind',
 ];
-
 
 export const Skills = () => {
   return (
