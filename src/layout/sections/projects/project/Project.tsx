@@ -1,42 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { FlexWrapper } from '../../../../components/FlexWrapper';
 import { TextWrapper } from '../../../../components/textwrapper/TextWrapper';
 
 
 type ProjectPropsType = {
   image: string;
+  alt: string;
   headingText: string;
   text: string;
   idx: number;
 }
 
+function getProjectData({ headingText: projectName }: { headingText: string }): Array<string> {
+  const projectId: string = projectName.replace(/\s/g, '');
+  const linkId: string = `${projectId}Link`;
+  const labelledBy: string = `${linkId} ${projectId}`;
+  return [projectName, projectId, linkId, labelledBy];
+}
+
 
 function imgLeft(props: ProjectPropsType) {
+  const [
+    projectName,
+    projectId,
+    linkId,
+    labelledBy
+  ]: Array<string> = getProjectData(props);
   return (
-    <FlexWrapper>
-      <Image src={props.image} alt={""}/>
+    <>
+      <Image src={props.image} alt={props.alt}/>
       <Info>
-        <Heading>{props.headingText}</Heading>
+        <Heading id={projectId}>{projectName}</Heading>
         <TextWrapper tag={"p"} text={props.text}/>
-        <Link href={"#"}>View Project</Link>
+        <Link href={"#"} id={linkId} aria-labelledby={labelledBy}>View Project</Link>
       </Info>
-    </FlexWrapper>
+    </>
   )
 }
 
 
 function imgRight(props: ProjectPropsType) {
+  const [
+    projectName,
+    projectId,
+    linkId,
+    labelledBy
+  ]: Array<string> = getProjectData(props);
   return (
-    <FlexWrapper>
+    <>
       <Info>
-        <Heading>{props.headingText}</Heading>
+        <Heading id={projectId}>{projectName}</Heading>
         <TextWrapper tag={"p"} text={props.text}/>
-        <Link href={"#"}>View Project</Link>
+        <Link href={"#"} id={linkId} aria-labelledby={labelledBy}>View Project</Link>
       </Info>
-      <Image src={props.image} alt={""}/>
-    </FlexWrapper>
+      <Image src={props.image} alt={props.alt}/>
+    </>
   )
 }
 
@@ -51,30 +70,42 @@ export const Project = (props: ProjectPropsType) => {
 
 
 const StyledProject = styled.div`
-  width: 992px;
-  height: 524px;
-  overflow: hidden;
+  height: 526px;
+  display: flex;
 `;
 
-const Link = styled.a`
-  display: inline-block;
-  line-height: 43px;
-  width: 150px;
-  text-align: center;
-  background-color: transparent;
-  border: 1px solid black;
-  border-radius: 24px;
+// type I = {
+//   img: string;
+// }
+
+// const BGwrapper = styled.div<I>`
+//   width: calc(100% / 2);
+//   background-image: url(${props => props.img});
+//   background-repeat: no-repeat;
+//   background-size: 130%;
+//   background-position: right -295px;
+// `;
+
+const Image = styled.img`
+  object-fit: cover;
+  width: calc(100% / 2);
 `;
 
 const Info = styled.div`
-  flex: 1;
+  padding: 146px 39px 147px 50px;
+  width: calc(100% / 2);
+`;
+
+const Link = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 24px;
+  color: black;
 `;
 
 const Heading = styled.h3``;
-
-const Image = styled.img`
-  flex: 1;
-  object-fit: cover;
-  width: 496px;
-  height: 524px;
-`;

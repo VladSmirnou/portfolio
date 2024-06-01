@@ -14,10 +14,11 @@ export const Projects = () => {
       <SectionHeading>Projects</SectionHeading>
       <FlexWrapper direction={"column"}>
         {Object.values(data).map(
-          ({ image, headingText, text }, idx) => {
+          ({ image, alt, headingText, text }, idx) => {
             return (
               <Project
                 image={image}
+                alt={alt}
                 idx={idx}
                 headingText={headingText}
                 text={text}
@@ -33,4 +34,5 @@ export const Projects = () => {
 
 const StyledProjects = styled.section`
   background-color: lightgrey;
+  max-width: 992px;
 `;

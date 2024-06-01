@@ -1,29 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FlexWrapper } from '../../components/FlexWrapper';
 
+import { FlexWrapper } from '../../components/FlexWrapper';
+import { Container } from '../../components/Container';
+import { HeaderMenu } from './headerMenu/HeaderMenu';
+
+
+const menuLinks = [
+  'About',
+  'Projects',
+  'Contacts',
+]
 
 export const Header = () => {
   return (
     <StyledHeader>
-      <FlexWrapper justify='space-between'>
-        <Logo>
-          <a href="#">Vahid Navazan</a>
-        </Logo>
-        <MainNav>
-          <NavList>
-            <NavListItem>
-              <NavListItemLink href={"#"}>About</NavListItemLink>
-            </NavListItem>
-            <NavListItem>
-              <NavListItemLink href={"#"}>Projects</NavListItemLink>
-            </NavListItem>
-            <NavListItem>
-              <NavListItemLink href={"#"}>Contacts</NavListItemLink>
-            </NavListItem>
-          </NavList>
-        </MainNav>
-      </FlexWrapper>
+      <Container>
+        <FlexWrapper justify='space-between'>
+          <Logo>
+            <a href={"#"}>Vahid Navazan</a>
+          </Logo>
+          <HeaderMenu menuLinks={menuLinks}/>
+        </FlexWrapper>
+      </Container>
     </StyledHeader>
   )
 }
@@ -32,19 +31,17 @@ export const Header = () => {
 const StyledHeader = styled.header`
   height: 56px;
   background-color: lightyellow;
-`;
+  max-width: 1440px;
+  margin: 0 auto;
 
-const Logo = styled.span``;
-
-const NavList = styled.ul``;
-
-const MainNav = styled.nav`
-  ${NavList} { 
+  ${Container} {
     display: flex;
-    gap: 30px;
+    align-items: center;
+
+    ${FlexWrapper} {
+      flex-grow: 1;
+    }
   }
 `;
 
-const NavListItem = styled.li``;
-
-const NavListItemLink = styled.a``;
+const Logo = styled.span``;

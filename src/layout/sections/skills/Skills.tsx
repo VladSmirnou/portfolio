@@ -26,15 +26,16 @@ export const Skills = () => {
   return (
     <StyledSkills>
       <SectionHeading>Skills</SectionHeading>
-        <FlexWrapper wrap={"wrap"}>
-            {iconIDs.map(
-              el => <Icon width={"130"}
-                          height={"130"}
-                          boxConf={"0 0 130 130"}
-                          iconId={el}/>
-              )
-            }
-        </FlexWrapper>
+      <FlexWrapper wrap={'wrap'}>
+        {iconIDs.map(
+          el => <Icon width={"130"}
+                      height={"130"}
+                      boxConf={"0 0 130 130"}
+                      iconId={el}
+                      desc={el}/>
+          )
+        }
+      </FlexWrapper>
     </StyledSkills>
   )
 }

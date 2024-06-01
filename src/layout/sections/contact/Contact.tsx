@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { SectionHeading } from '../../../components/SectionHeading';
 import { FlexWrapper } from '../../../components/FlexWrapper';
-import { TextWrapper } from '../../../components/textwrapper/TextWrapper';
 import { Icon } from '../../../components/icon/Icon';
 
 
@@ -23,14 +22,14 @@ export const Contact = () => {
           <Field id={"text"} />
           <label htmlFor={"email"}>Email</label>
           <Field id={"email"} type={"email"} />
-          <Field as={"textarea"} />
+          <Field as={"textarea"} aria-label='your message'/>
           <Button type={"submit"}>Send</Button>
         </Form>
         <SocialList>
           {iconIds.map((el, i) => {
             return (
-              <SocialItem key={i}>
-                <SocialLink>
+              <SocialItem key={i} >
+                <SocialLink href="#" aria-label={el}>
                   <Icon iconId={el}
                         boxConf={"0 0 48 49"}
                         width={"48"}
@@ -41,10 +40,12 @@ export const Contact = () => {
           })}
         </SocialList>
       </FlexWrapper>
-      <TextWrapper tag={"span"} text={"Madelyn Torff 2021 "}/>
+      <SmallText>Madelyn Torff 2021</SmallText>
     </StyledContact>
   )
 }
+
+const SmallText = styled.small``
 
 const StyledContact = styled.section`
   background-color: lightblue;
@@ -61,10 +62,8 @@ const Field = styled.input`
 
 const Button = styled.button`
   width: 89px;
-  height: 43px;
   align-self: flex-end;
   background-color: #FDC435;
-  border: none;
   border-radius: 8px;
   cursor: pointer;
 `;
