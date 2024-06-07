@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { TextWrapper } from '../../../../components/textwrapper/TextWrapper';
+import { theme } from '../../../../styles/Theme';
 
 
 type ProjectPropsType = {
@@ -43,6 +44,17 @@ export const Project = (props: ProjectPropsType) => {
 const StyledProject = styled.div`
   height: 526px;
   display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+
+  p {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin: 24px 0;
+    color: ${theme.colors.font.minor};
+  }
 `;
 
 // type I = {
@@ -59,12 +71,13 @@ const StyledProject = styled.div`
 
 const Image = styled.img`
   object-fit: cover;
-  width: calc(100% / 2);
+  width: 50%;
 `;
 
 const Info = styled.div`
   padding: 146px 39px 147px 50px;
-  width: calc(100% / 2);
+  width: 50%;
+  background-color: ${theme.colors.secondaryBg};
 `;
 
 const Link = styled.a`
@@ -77,6 +90,18 @@ const Link = styled.a`
   border-width: 1px;
   border-radius: 24px;
   color: black;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: ${theme.colors.font.major};
 `;
 
-const Heading = styled.h3``;
+const Heading = styled.h3`
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+  color: ${theme.colors.font.major}
+`;

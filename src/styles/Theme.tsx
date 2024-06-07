@@ -3,8 +3,9 @@ export const theme = (() => {
   return {
     colors: {
       primaryBg: '#F9FAFF',
-      projectsInfoBg: '#FFFFFF',
+      secondaryBg: '#FFFFFF',
       brand,
+      formFieldBorder: '#E8ECF4',
 
       font: {
         major: '#25282B',

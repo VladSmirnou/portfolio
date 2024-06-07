@@ -30,13 +30,15 @@ export const Header = () => {
 
 
 const StyledHeader = styled.header`
+  background-color: ${theme.colors.primaryBg};
   height: 56px;
-  width: 100%;
-  background-color: lightyellow;
   margin: 0 auto;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  z-index: 99999;
+
   ${Container} {
     display: flex;
     align-items: center;

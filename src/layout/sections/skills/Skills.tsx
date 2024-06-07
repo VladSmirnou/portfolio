@@ -5,6 +5,7 @@ import { SectionHeading } from '../../../components/SectionHeading';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Icon } from '../../../components/icon/Icon';
 import { Container } from '../../../components/Container';
+import { theme } from '../../../styles/Theme';
 
 
 const iconIDs = [
@@ -45,11 +46,14 @@ export const Skills = () => {
 
 const StyledSkills = styled.section`
   margin-top: 144px;
-  background-color: lightgreen;
 
   ${FlexWrapper} {
     row-gap: 74px;
     column-gap: 96px;
     padding: 10px;
+  }
+
+  ${SectionHeading} {
+    margin-bottom: 82px;
   }
 `;

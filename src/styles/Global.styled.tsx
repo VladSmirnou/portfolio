@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     color: ${theme.colors.font.major};
     line-height: 1.2;
+    background-color: ${theme.colors.primaryBg};
   }
   
   ul {
@@ -36,5 +37,28 @@ export const GlobalStyle = createGlobalStyle`
 
   a, button {
     height: 43px;
+  }
+
+  section > div > h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 72px;
+
+    position: relative;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      left: calc(50% - 50px);
+      right: calc(50% - 50px);
+      height: 4px;
+      border-radius: 2px;
+      background-color: black;
+      bottom: -8px;
+      background-color: ${theme.colors.brand};
+
+      position: absolute;
+    }
   }
 `

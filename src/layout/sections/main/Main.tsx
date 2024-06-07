@@ -50,8 +50,6 @@ const Photo = styled.img`
 `;
 
 const StyledMain = styled.section`
-  background-color: lightpink;
-  min-height: 60vh;
   margin: 0 auto;
 `;
 

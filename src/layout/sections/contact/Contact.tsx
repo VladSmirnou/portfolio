@@ -5,6 +5,7 @@ import { SectionHeading } from '../../../components/SectionHeading';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Icon } from '../../../components/icon/Icon';
 import { Container } from '../../../components/Container';
+import { theme } from '../../../styles/Theme';
 
 
 const iconIds = [
@@ -24,7 +25,8 @@ export const Contact = () => {
             <Field id={"text"} />
             <label htmlFor={"email"}>Email</label>
             <Field id={"email"} type={"email"} />
-            <Field as={"textarea"} aria-label='your message'/>
+            <label htmlFor={"message"}>Message</label>
+            <Field as={"textarea"} id={"message"} height={160}/>
             <Button type={"submit"}>Send</Button>
           </Form>
           <SocialList>
@@ -33,9 +35,9 @@ export const Contact = () => {
                 <SocialItem key={i} >
                   <SocialLink href="#" aria-label={el}>
                     <Icon iconId={el}
-                          boxConf={"0 0 48 49"}
+                          boxConf={"0 0 48 48"}
                           width={"48"}
-                          height={"49"}/>
+                          height={"48"}/>
                   </SocialLink>
                 </SocialItem>
               )
@@ -55,32 +57,67 @@ const SmallText = styled.small`
 
 const StyledContact = styled.section`
   margin-top: 144px;
-  background-color: lightblue;
+
+  ${SectionHeading} {
+    margin-bottom: 88px;
+  }
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  
+  label {
+    font-family: Nunito, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: ${theme.colors.font.major};
+
+    margin-bottom: 8px;
+  }
+
+  margin-bottom: 56px;
 `;
 
-const Field = styled.input`
+type FieldPropsType = {
+  height?: number;
+}
+
+const Field = styled.input<FieldPropsType>`
   width: 100%;
+  height: ${props => props.height || 40}px;
+  border-radius: 8px;
+  border: 1px solid ${theme.colors.formFieldBorder};
+  background-color: ${theme.colors.secondaryBg};
+  margin-bottom: 24px;
 `;
 
 const Button = styled.button`
   width: 89px;
   align-self: flex-end;
-  background-color: #FDC435;
+  background-color: ${theme.colors.brand};
   border-radius: 8px;
   cursor: pointer;
+
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
 `;
 
 const SocialList = styled.ul`
   display: flex;
   justify-content: center;
-  gap: 30px;
+  column-gap: 24px;
+  margin-bottom: 32px;
 `;
 
-const SocialItem = styled.li``;
+const SocialItem = styled.li`
+  height: 48px;
+`;
 
-const SocialLink = styled.a``;
+const SocialLink = styled.a`
+  display: inline-block;
+  height: 100%;
+`;

@@ -36,10 +36,15 @@ export const Projects = () => {
 
 
 const StyledProjects = styled.section`
-  background-color: lightgrey;
   margin: 144px auto 0 auto;
 
   div:nth-child(even) > img {
     order: -1;
+  }
+  ${SectionHeading} {
+    margin-bottom: 88px;
+  }
+  ${FlexWrapper} {
+    row-gap: 80px;
   }
 `;
