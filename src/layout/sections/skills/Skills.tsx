@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { SectionHeading } from '../../../components/SectionHeading';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Icon } from '../../../components/icon/Icon';
+import { Container } from '../../../components/Container';
 
 
 const iconIDs = [
@@ -13,33 +14,42 @@ const iconIDs = [
   'html',
   'greensock',
   'spiral',
-  'boostrap',
   'github',
   'git',
   'react',
   'sass',
+  'boostrap',
   'tailwind',
 ];
 
 export const Skills = () => {
   return (
     <StyledSkills>
-      <SectionHeading>Skills</SectionHeading>
-      <FlexWrapper wrap={'wrap'}>
-        {iconIDs.map(
-          el => <Icon width={"130"}
-                      height={"130"}
-                      boxConf={"0 0 130 130"}
-                      iconId={el}
-                      desc={el}/>
-          )
-        }
-      </FlexWrapper>
+      <Container>
+        <SectionHeading>Skills</SectionHeading>
+        <FlexWrapper wrap={'wrap'} justify={"space-between"}>
+          {iconIDs.map(
+            el => <Icon width={"112"}
+                        height={"112"}
+                        boxConf={"0 0 120 120"}
+                        iconId={el}
+                        desc={el}/>
+            )
+          }
+        </FlexWrapper>
+      </Container>
     </StyledSkills>
   )
 }
 
 
 const StyledSkills = styled.section`
+  margin-top: 144px;
   background-color: lightgreen;
+
+  ${FlexWrapper} {
+    row-gap: 74px;
+    column-gap: 96px;
+    padding: 10px;
+  }
 `;

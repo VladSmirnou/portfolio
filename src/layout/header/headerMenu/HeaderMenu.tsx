@@ -1,10 +1,10 @@
 import styled from "styled-components"
+import { theme } from '../../../styles/Theme';
 
 
 type HeaderMenuPropsType = {
   menuLinks: Array<string>;
 }
-
 
 export const HeaderMenu = (props: HeaderMenuPropsType) => {
   return (
@@ -27,7 +27,9 @@ const StyledHeaderMenu = styled.nav``;
 
 const MenuList = styled.ul`
   display: flex;
-  gap: 30px;
+  gap: 48px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
 `;
 
 const MenuListItem = styled.li``;

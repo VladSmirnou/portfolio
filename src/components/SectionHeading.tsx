@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 
-export const SectionHeading = styled.h2`
-  text-align: center;
+type SectionHeading = {
+  textAlign?: string;
+}
+
+export const SectionHeading = styled.h2<SectionHeading>`
+  text-align: ${props => props.textAlign || 'center'};
 `;

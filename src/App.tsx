@@ -9,12 +9,12 @@ import { Contact } from './layout/sections/contact/Contact';
 
 export default function App() {
     return (
-        <div className="App">
-            <Header />
-            <Main />
-            <Skills />
-            <Projects />
-            <Contact />
-        </div>
+      <div className='App'>
+        <Header />
+        <Main />
+        <Skills />
+        <Projects />
+        <Contact />
+      </div>
     );
 }

@@ -12,22 +12,24 @@ export const Main = () => {
   return (
     <StyledMain>
       <Container>
-        <MainHeading>Software Developer</MainHeading>
-        <FlexWrapper>
+        <FlexWrapper align={"center"} justify={"space-between"}>
           <Intro>
-            <SectionHeading>Hello, my name is Vahid Navazan</SectionHeading>
-            <TextWrapper
-              tag={"p"}
-              text={
-                "Short text with details about you, what you do or your professional career. You can add more information on the about page."
-              }
-            />
-            <FlexWrapper>
-              <LinkProj href={"#"}>Projects</LinkProj>
-              <LinkLinkedin href={"#"}>LinkedIn</LinkLinkedin>
-            </FlexWrapper>
+            <MainHeading>Software Developer</MainHeading>
+            <div>
+              <SectionHeading textAlign={"left"}>Hello, my name is Vahid Navazan</SectionHeading>
+              <TextWrapper
+                tag={"p"}
+                text={
+                  "Short text with details about you, what you do or your professional career. You can add more information on the about page."
+                }
+                />
+              <FlexWrapper>
+                <LinkProj href={"#"}>Projects</LinkProj>
+                <LinkLinkedin href={"#"}>LinkedIn</LinkLinkedin>
+              </FlexWrapper>
+            </div>
           </Intro>
-          <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне анфас"}/>
+          <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
         </FlexWrapper>
       </Container>
     </StyledMain>
@@ -35,17 +37,25 @@ export const Main = () => {
 }
 
 
+const Intro = styled.div`
+  border: 2px solid black;
+  max-width: 508px;
+  min-height: 408px;
+`;
+
+const Photo = styled.img`
+  object-fit: cover;
+  width: 50%;
+  max-height: 629px;
+`;
+
 const StyledMain = styled.section`
   background-color: lightpink;
-  max-width: 1440px;
+  min-height: 60vh;
   margin: 0 auto;
 `;
 
-const Intro = styled.section``;
-
 const MainHeading = styled.h1``;
-
-const Photo = styled.img``;
 
 const LinkProj = styled.a`
   display: flex;
