@@ -79,6 +79,7 @@ const StyledContact = styled.section`
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: -1;
   }
 
   padding-bottom: 241px;
