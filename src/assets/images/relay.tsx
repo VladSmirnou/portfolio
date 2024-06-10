@@ -2,6 +2,19 @@ import image1 from './projects-first-compressed.webp';
 import image2 from './projects-second-compressed.webp';
 import image3 from './projects-third-compressed.webp';
 
+import vscode from './skills/vscode-icons_file-type-vscode.svg';
+import js from './skills/vscode-icons_file-type-js-official.svg';
+import css from './skills/vscode-icons_file-type-css.svg';
+import html from './skills/vscode-icons_file-type-html.svg';
+import greenSock from './skills/cib_greensock.svg';
+import vector from './skills/Vector.svg';
+import gitHub from './skills/akar-icons_github-fill.svg';
+import git from './skills/logos_git-icon.svg';
+import react from './skills/logos_react.svg';
+import saas from './skills/logos_sass.svg';
+import bootstrap from './skills/logos_bootstrap.svg';
+import tailwind from './skills/vscode-icons_file-type-tailwind.svg';
+
 
 export const data = {
   proj1: {
@@ -22,4 +35,19 @@ export const data = {
     headingText: "Third project",
     text: "You can also add in this description the type of the project, if it was for web, mobile, electron."
   }
+}
+
+export const skillData = {
+  vscode,
+  js,
+  css,
+  html,
+  greenSock,
+  vector,
+  gitHub,
+  git,
+  react,
+  saas,
+  bootstrap,
+  tailwind
 }
