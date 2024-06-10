@@ -1,13 +1,14 @@
 import React from 'react';
-import sprite from '../../assets/images/icons-sprite.svg';
+import modSprite from '../../assets/images/modifiedSprite.svg';
 
 
 type IconPropsType = {
-  width: string;
-  height: string;
-  boxConf: string;
+  width: number;
+  height: number;
+  boxConf?: string;
   iconId: string;
   desc?: string;
+  scale?: boolean;
 }
 
 
@@ -16,9 +17,12 @@ export const Icon = (props: IconPropsType) => {
     <svg
       width={props.width}
       height={props.height}
-      viewBox={props.boxConf}
-      xmlns="http://www.w3.org/2000/svg">
-        <use href={`${sprite}#${props.iconId}`}/>
+      viewBox={props.boxConf || 'none'}>
+        <use
+          href={`${modSprite}#${props.iconId}`}
+          width={props.scale ? '100%' : 0}
+          height={props.scale ? '100%' : 0}
+          />
         <desc>{props.desc}</desc>
     </svg>
   )

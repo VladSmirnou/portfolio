@@ -36,8 +36,8 @@ export const Contact = () => {
                   <SocialLink href="#" aria-label={el}>
                     <Icon iconId={el}
                           boxConf={"0 0 48 48"}
-                          width={"48"}
-                          height={"48"}/>
+                          width={48}
+                          height={48}/>
                   </SocialLink>
                 </SocialItem>
               )
@@ -48,8 +48,8 @@ export const Contact = () => {
       </Container>
       <Icon iconId={"bottomSvg"}
             boxConf={"0 0 1440 344"}
-            width={"1440"}
-            height={"344"} />
+            width={1440}
+            height={344} />
     </StyledContact>
   )
 }

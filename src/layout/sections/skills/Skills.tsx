@@ -5,7 +5,6 @@ import { SectionHeading } from '../../../components/SectionHeading';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Icon } from '../../../components/icon/Icon';
 import { Container } from '../../../components/Container';
-import { theme } from '../../../styles/Theme';
 
 
 const iconIDs = [
@@ -14,12 +13,12 @@ const iconIDs = [
   'css',
   'html',
   'greensock',
-  'spiral',
+  'vector',
   'github',
   'git',
   'react',
   'sass',
-  'boostrap',
+  'bootstrap',
   'tailwind',
 ];
 
@@ -30,11 +29,11 @@ export const Skills = () => {
         <SectionHeading>Skills</SectionHeading>
         <FlexWrapper wrap={'wrap'} justify={"space-between"}>
           {iconIDs.map(
-            el => <Icon width={"112"}
-                        height={"112"}
-                        boxConf={"0 0 120 120"}
+            el => <Icon width={112}
+                        height={112}
                         iconId={el}
-                        desc={el}/>
+                        desc={el}
+                        scale/>
             )
           }
         </FlexWrapper>
