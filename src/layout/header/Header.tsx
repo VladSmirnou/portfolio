@@ -30,7 +30,7 @@ export const Header = () => {
 
 
 const StyledHeader = styled.header`
-  background-color: ${theme.colors.primaryBg};
+  /* background-color: ${theme.colors.primaryBg}; */
   height: 56px;
   margin: 0 auto;
   position: fixed;

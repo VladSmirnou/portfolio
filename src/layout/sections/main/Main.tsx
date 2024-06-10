@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import MainPhoto from '../../../assets/images/main-image-compressed.webp';
+import mask from '../../../assets/images/yellow-bg.png';
+
 
 import { SectionHeading } from '../../../components/SectionHeading';
 import { TextWrapper } from '../../../components/textwrapper/TextWrapper';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Container } from '../../../components/Container';
 import { theme } from '../../../styles/Theme';
+import { Icon } from '../../../components/icon/Icon';
 
 
 export const Main = () => {
@@ -32,6 +35,8 @@ export const Main = () => {
           </Intro>
           <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
         </FlexWrapper>
+      <Icon width={720} height={629} boxConf={"0 0 720 629"} iconId={"yellowBg"}/>
+      <img src={mask} alt="" />
       </Container>
     </StyledMain>
   )
@@ -66,10 +71,30 @@ const Photo = styled.img`
   object-fit: cover;
   width: 50%;
   max-height: 629px;
+  height: 629px;
+  position: relative;
+  overflow: hidden;
 `;
 
 const StyledMain = styled.section`
   margin: 0 auto;
+
+  ${Container} {
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: 0;
+      right: -120px;
+      z-index: -1;
+    }
+
+    svg + img {
+      position: absolute;
+      top: 0;
+      right: -120px;
+    }
+  } 
 `;
 
 const MainHeading = styled.h1`
