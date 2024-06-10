@@ -19,7 +19,7 @@ export const Header = () => {
       <Container>
         <FlexWrapper justify={"space-between"} align={"center"}>
           <Logo>
-            <a href={"#"}>Vahid Navazan</a>
+            <Name href={"#"}>Vahid Navazan</Name>
           </Logo>
           <HeaderMenu menuLinks={menuLinks}/>
         </FlexWrapper>
@@ -47,14 +47,13 @@ const StyledHeader = styled.header`
       flex-grow: 1;
     }
   }
-  a {
-    color: ${theme.colors.font.major};
-    font-size: 18px;
-  }
 `;
 
-const Logo = styled.span`
-  a {
-    font-family: Comfortaa, sans-serif;
-  }
-`;
+const Logo = styled.span``;
+
+const Name = styled.a`
+  font-family: Comfortaa, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 32px;
+`

@@ -6,6 +6,7 @@ import { SectionHeading } from '../../../components/SectionHeading';
 import { TextWrapper } from '../../../components/textwrapper/TextWrapper';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Container } from '../../../components/Container';
+import { theme } from '../../../styles/Theme';
 
 
 export const Main = () => {
@@ -41,6 +42,24 @@ const Intro = styled.div`
   border: 2px solid black;
   max-width: 508px;
   min-height: 408px;
+
+  ${SectionHeading} {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    color: ${theme.colors.font.medium};
+    margin-top: 12px;
+  }
+
+  p {
+    font-family: Nunito, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: ${theme.colors.font.minor};
+    margin: 32px 0;
+  }
 `;
 
 const Photo = styled.img`
@@ -53,16 +72,26 @@ const StyledMain = styled.section`
   margin: 0 auto;
 `;
 
-const MainHeading = styled.h1``;
+const MainHeading = styled.h1`
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: ${theme.colors.brand};
+  text-transform: uppercase;
+`;
 
 const LinkProj = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 115px;
-  background-color: #FDC435;
+  background-color: ${theme.colors.brand};
   border-radius: 8px;
-  color: black;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
 `;
 
 const LinkLinkedin = styled(LinkProj)`

@@ -48,7 +48,7 @@ const StyledProject = styled.div`
   overflow: hidden;
 
   p {
-    font-family: 'Nunito', sans-serif;
+    font-family: Nunito, sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
@@ -89,13 +89,11 @@ const Link = styled.a`
   border-style: solid;
   border-width: 1px;
   border-radius: 24px;
-  color: black;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  color: ${theme.colors.font.major};
 `;
 
 const Heading = styled.h3`
@@ -103,5 +101,4 @@ const Heading = styled.h3`
   font-weight: 700;
   font-size: 40px;
   line-height: 60px;
-  color: ${theme.colors.font.major}
 `;

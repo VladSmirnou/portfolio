@@ -41,9 +41,11 @@ const StyledProjects = styled.section`
   div:nth-child(even) > img {
     order: -1;
   }
+
   ${SectionHeading} {
     margin-bottom: 88px;
   }
+  
   ${FlexWrapper} {
     row-gap: 80px;
   }

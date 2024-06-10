@@ -26,7 +26,7 @@ export const Contact = () => {
             <label htmlFor={"email"}>Email</label>
             <Field id={"email"} type={"email"} />
             <label htmlFor={"message"}>Message</label>
-            <Field as={"textarea"} id={"message"} height={160}/>
+            <Field as={"textarea"} id={"message"} height={160} />
             <Button type={"submit"}>Send</Button>
           </Form>
           <SocialList>
@@ -46,6 +46,10 @@ export const Contact = () => {
         </FlexWrapper>
         <SmallText>Madelyn Torff 2021</SmallText>
       </Container>
+      <Icon iconId={"bottomSvg"}
+            boxConf={"0 0 1440 344"}
+            width={"1440"}
+            height={"344"} />
     </StyledContact>
   )
 }
@@ -53,14 +57,31 @@ export const Contact = () => {
 const SmallText = styled.small`
   display: block;
   text-align: center;
+
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: ${theme.colors.font.minor};
 `
 
 const StyledContact = styled.section`
-  margin-top: 144px;
+  max-width: 1440px;
+  margin: 144px auto 0;
+
+  position: relative;
 
   ${SectionHeading} {
     margin-bottom: 88px;
   }
+
+  & > svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  padding-bottom: 241px;
 `;
 
 const Form = styled.form`
@@ -72,9 +93,15 @@ const Form = styled.form`
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
-    color: ${theme.colors.font.major};
-
     margin-bottom: 8px;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  textarea:focus-visible {
+    resize: vertical;
   }
 
   margin-bottom: 56px;
@@ -82,15 +109,16 @@ const Form = styled.form`
 
 type FieldPropsType = {
   height?: number;
+  resize?: string;
 }
 
 const Field = styled.input<FieldPropsType>`
   width: 100%;
-  height: ${props => props.height || 40}px;
   border-radius: 8px;
+  margin-bottom: 24px;
   border: 1px solid ${theme.colors.formFieldBorder};
   background-color: ${theme.colors.secondaryBg};
-  margin-bottom: 24px;
+  height: ${props => props.height || 40}px;
 `;
 
 const Button = styled.button`

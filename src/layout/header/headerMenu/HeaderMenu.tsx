@@ -28,10 +28,13 @@ const StyledHeaderMenu = styled.nav``;
 const MenuList = styled.ul`
   display: flex;
   gap: 48px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 500;
 `;
 
 const MenuListItem = styled.li``;
 
-const MenuListItemLink = styled.a``;
+const MenuListItemLink = styled.a`
+  font-family: Raleway, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+`;
