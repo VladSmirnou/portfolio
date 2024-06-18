@@ -12,16 +12,25 @@ export const Skills = () => {
     <StyledSkills>
       <Container>
         <SectionHeading>Skills</SectionHeading>
-        <FlexWrapper wrap={'wrap'} justify={"space-between"}>
+        <GridWrapper>
           {Object.entries(skillData).map(
               ([k, v]) => <SkillImg src={v} alt={k} />
             )
           }
-        </FlexWrapper>
+        </GridWrapper>
       </Container>
     </StyledSkills>
   )
 }
+
+const GridWrapper = styled.div`
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(auto-fill, 120px);
+  grid-auto-rows: 120px;
+  gap: 74px 90px;
+  justify-content: space-between;
+`;
 
 const SkillImg = styled.img`
   width: 120px;
