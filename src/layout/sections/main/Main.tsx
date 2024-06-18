@@ -5,7 +5,6 @@ import mask from '../../../assets/images/yellow-bg.png';
 
 
 import { SectionHeading } from '../../../components/SectionHeading';
-import { TextWrapper } from '../../../components/textwrapper/TextWrapper';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Container } from '../../../components/Container';
 import { theme } from '../../../styles/Theme';
@@ -20,13 +19,10 @@ export const Main = () => {
           <Intro>
             <MainHeading>Software Developer</MainHeading>
             <div>
-              <SectionHeading textAlign={"left"}>Hello, my name is Vahid Navazan</SectionHeading>
-              <TextWrapper
-                tag={"p"}
-                text={
-                  "Short text with details about you, what you do or your professional career. You can add more information on the about page."
-                }
-                />
+              <SectionHeading textAlign={"left"} noDecorate>Hello, my name is Vahid Navazan</SectionHeading>
+              <Text>
+                Short text with details about you, what you do or your professional career. You can add more information on the about page.
+              </Text>
               <FlexWrapper>
                 <LinkProj href={"#"}>Projects</LinkProj>
                 <LinkLinkedin href={"#"}>LinkedIn</LinkLinkedin>
@@ -42,6 +38,14 @@ export const Main = () => {
   )
 }
 
+const Text = styled.p `
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: ${theme.colors.font.minor};
+  margin: 32px 0;
+`;
 
 const Intro = styled.div`
   border: 2px solid black;
@@ -55,15 +59,6 @@ const Intro = styled.div`
     line-height: 77px;
     color: ${theme.colors.font.medium};
     margin-top: 12px;
-  }
-
-  p {
-    font-family: Nunito, sans-serif;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 36px;
-    color: ${theme.colors.font.minor};
-    margin: 32px 0;
   }
 `;
 
@@ -82,17 +77,14 @@ const StyledMain = styled.section`
   ${Container} {
     position: relative;
 
-    svg {
+    svg, svg + img {
       position: absolute;
       top: 0;
       right: -120px;
-      z-index: -1;
-    }
+      }
 
-    svg + img {
-      position: absolute;
-      top: 0;
-      right: -120px;
+    svg {
+      z-index: -1;
     }
   } 
 `;

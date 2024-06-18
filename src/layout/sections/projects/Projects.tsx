@@ -12,20 +12,20 @@ import { Container } from '../../../components/Container';
 export const Projects = () => {
   return (
     <StyledProjects>
-      <Container maxWidth={992}>
+      <Container>
         <SectionHeading>Projects</SectionHeading>
         <FlexWrapper direction={"column"}>
           {Object.values(data).map(
-            ({ image, alt, headingText, text }, idx) => {
+            ({ image, alt, projectName, text }, idx) => {
               return (
                 <Project
                   image={image}
                   alt={alt}
                   idx={idx}
-                  headingText={headingText}
+                  projectName={projectName}
                   text={text}
                 />
-                )
+              )
             }
           )}
         </FlexWrapper>
@@ -36,7 +36,7 @@ export const Projects = () => {
 
 
 const StyledProjects = styled.section`
-  margin: 144px auto 0 auto;
+  margin-top: 144px;
 
   div:nth-child(even) > img {
     order: -1;
@@ -48,5 +48,7 @@ const StyledProjects = styled.section`
   
   ${FlexWrapper} {
     row-gap: 80px;
+    max-width: 992px;
+    margin: 0 auto;
   }
 `;

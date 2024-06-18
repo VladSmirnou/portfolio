@@ -1,29 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { TextWrapper } from '../../../../components/textwrapper/TextWrapper';
 import { theme } from '../../../../styles/Theme';
 
 
 type ProjectPropsType = {
   image: string;
   alt: string;
-  headingText: string;
+  projectName: string;
   text: string;
   idx: number;
 }
 
-function getProjectData({ headingText: projectName }: { headingText: string }): Array<string> {
+function getProjectData({ projectName }: { projectName: string }): Array<string> {
   const projectId: string = projectName.replace(/\s/g, '');
   const linkId: string = `${projectId}Link`;
   const labelledBy: string = `${linkId} ${projectId}`;
-  return [projectName, projectId, linkId, labelledBy];
+  return [projectId, linkId, labelledBy];
 }
 
 
 export const Project = (props: ProjectPropsType) => {
   const [
-    projectName,
     projectId,
     linkId,
     labelledBy
@@ -31,8 +29,8 @@ export const Project = (props: ProjectPropsType) => {
   return (
     <StyledProject>
       <Info>
-        <Heading id={projectId}>{projectName}</Heading>
-        <TextWrapper tag={"p"} text={props.text}/>
+        <Heading id={projectId}>{props.projectName}</Heading>
+        <Text>{props.text}</Text>
         <Link href={"#"} id={linkId} aria-labelledby={labelledBy}>View Project</Link>
       </Info>
       <Image src={props.image} alt={props.alt}/>
@@ -41,33 +39,21 @@ export const Project = (props: ProjectPropsType) => {
 }
 
 
-const StyledProject = styled.div`
-  height: 526px;
-  display: flex;
-  border-radius: 24px;
-  overflow: hidden;
-
-  p {
+const Text = styled.p`
     font-family: Nunito, sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
     margin: 24px 0;
     color: ${theme.colors.font.minor};
-  }
 `;
 
-// type I = {
-//   img: string;
-// }
-
-// const BGwrapper = styled.div<I>`
-//   width: calc(100% / 2);
-//   background-image: url(${props => props.img});
-//   background-repeat: no-repeat;
-//   background-size: 130%;
-//   background-position: right -295px;
-// `;
+const StyledProject = styled.div`
+  height: 526px;
+  display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+`;
 
 const Image = styled.img`
   object-fit: cover;

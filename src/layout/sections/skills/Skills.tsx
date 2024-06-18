@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { SectionHeading } from '../../../components/SectionHeading';
 import { FlexWrapper } from '../../../components/FlexWrapper';
-// import { Icon } from '../../../components/icon/Icon';
 import { Container } from '../../../components/Container';
 import { skillData } from '../../../assets/images/relay';
 

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { FlexWrapper } from '../../components/FlexWrapper';
 import { Container } from '../../components/Container';
 import { HeaderMenu } from './headerMenu/HeaderMenu';
-import { theme } from '../../styles/Theme';
 
 
 const menuLinks = [
@@ -30,7 +29,6 @@ export const Header = () => {
 
 
 const StyledHeader = styled.header`
-  /* background-color: ${theme.colors.primaryBg}; */
   height: 56px;
   margin: 0 auto;
   position: fixed;
