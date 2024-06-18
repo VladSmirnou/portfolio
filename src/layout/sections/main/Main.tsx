@@ -1,38 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 import MainPhoto from '../../../assets/images/main-image-compressed.webp';
-import mask from '../../../assets/images/yellow-bg.png';
-
-
+import photoMask from '../../../assets/images/yellow-bg-full.svg';
 import { SectionHeading } from '../../../components/SectionHeading';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Container } from '../../../components/Container';
 import { theme } from '../../../styles/Theme';
-import { Icon } from '../../../components/icon/Icon';
 
 
 export const Main = () => {
   return (
     <StyledMain>
       <Container>
-        <FlexWrapper align={"center"} justify={"space-between"}>
-          <Intro>
-            <MainHeading>Software Developer</MainHeading>
-            <div>
-              <SectionHeading textAlign={"left"} noDecorate>Hello, my name is Vahid Navazan</SectionHeading>
-              <Text>
-                Short text with details about you, what you do or your professional career. You can add more information on the about page.
-              </Text>
-              <FlexWrapper>
-                <LinkProj href={"#"}>Projects</LinkProj>
-                <LinkLinkedin href={"#"}>LinkedIn</LinkLinkedin>
-              </FlexWrapper>
-            </div>
-          </Intro>
-          <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
-        </FlexWrapper>
-      <Icon width={720} height={629} boxConf={"0 0 720 629"} iconId={"yellowBg"}/>
-      <img src={mask} alt="" />
+        <Intro>
+          <MainHeading>Software Developer</MainHeading>
+          <div>
+            <SectionHeading textAlign={"left"} noDecorate>Hello, my name is Vahid Navazan</SectionHeading>
+            <Text>
+              Short text with details about you, what you do or your professional career. You can add more information on the about page.
+            </Text>
+            <FlexWrapper>
+              <LinkProj href={"#"}>Projects</LinkProj>
+              <LinkLinkedin href={"#"}>LinkedIn</LinkLinkedin>
+            </FlexWrapper>
+          </div>
+        </Intro>
+        <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
+        <img src={photoMask} alt="" />
       </Container>
     </StyledMain>
   )
@@ -48,7 +42,6 @@ const Text = styled.p `
 `;
 
 const Intro = styled.div`
-  border: 2px solid black;
   max-width: 508px;
   min-height: 408px;
 
@@ -64,29 +57,27 @@ const Intro = styled.div`
 
 const Photo = styled.img`
   object-fit: cover;
-  width: 50%;
-  max-height: 629px;
+  object-position: 25px;
+  width: 720px;
   height: 629px;
-  position: relative;
-  overflow: hidden;
+  mask-image: url(${photoMask});
+  mask-position: left bottom;
+
+  position: absolute;
+  left: 50%;
+  top: 0;
 `;
 
 const StyledMain = styled.section`
-  margin: 0 auto;
+  position: relative;
+  padding-top: 110px;
 
-  ${Container} {
-    position: relative;
-
-    svg, svg + img {
-      position: absolute;
-      top: 0;
-      right: -120px;
-      }
-
-    svg {
-      z-index: -1;
-    }
-  } 
+  img:last-child {
+    position: absolute;
+    left: 50%;
+    top: -248px;
+    z-index: -1;
+  }
 `;
 
 const MainHeading = styled.h1`
