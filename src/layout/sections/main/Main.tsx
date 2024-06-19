@@ -57,7 +57,9 @@ const Intro = styled.div`
 
 const Photo = styled.img`
   object-fit: cover;
-  object-position: 25px;
+
+  padding: 25px 30px 0 30px;
+  object-position: 50px;
   width: 720px;
   height: 629px;
   mask-image: url(${photoMask});
