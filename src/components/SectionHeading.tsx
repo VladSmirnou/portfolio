@@ -20,8 +20,9 @@ export const SectionHeading = styled.h2<SectionHeading>`
     &::before {
       content: "";
       display: inline-block;
-      left: calc(50% - 50px);
-      right: calc(50% - 50px);
+      left: 50%;
+      transform: translate(-50%);
+      width: 100px;
       height: 4px;
       border-radius: 2px;
       bottom: -8px;
