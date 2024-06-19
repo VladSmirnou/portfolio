@@ -26,11 +26,11 @@ export const Main = () => {
           </div>
         </Intro>
         <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
-        <img src={photoMask} alt="" />
       </Container>
     </StyledMain>
   )
 }
+
 
 const Text = styled.p `
   font-family: Nunito, sans-serif;
@@ -74,7 +74,8 @@ const StyledMain = styled.section`
   position: relative;
   padding-top: 110px;
 
-  img:last-child {
+  &::before {
+    content: url(${photoMask});
     position: absolute;
     left: 50%;
     top: -248px;
