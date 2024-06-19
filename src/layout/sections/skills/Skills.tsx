@@ -26,10 +26,11 @@ export const Skills = () => {
 const GridWrapper = styled.div`
   display: grid;
   padding: 10px;
-  grid-template-columns: repeat(auto-fill, 120px);
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   grid-auto-rows: 120px;
   gap: 74px 90px;
   justify-content: space-between;
+  justify-items: center;
 `;
 
 const SkillImg = styled.img`
