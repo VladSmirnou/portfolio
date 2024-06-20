@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { theme } from '../../../../styles/Theme';
+import { FlexWrapper } from '../../../../components/FlexWrapper';
 
 
 type ProjectPropsType = {
@@ -12,7 +13,7 @@ type ProjectPropsType = {
   idx: number;
 }
 
-function getProjectData({ projectName }: { projectName: string }): Array<string> {
+function getProjectData({ projectName }: { projectName: string }): string[] {
   const projectId: string = projectName.replace(/\s/g, '');
   const linkId: string = `${projectId}Link`;
   const labelledBy: string = `${linkId} ${projectId}`;
@@ -25,15 +26,19 @@ export const Project = (props: ProjectPropsType) => {
     projectId,
     linkId,
     labelledBy
-  ]: Array<string> = getProjectData(props);
+  ]: string[] = getProjectData(props);
   return (
     <StyledProject>
-      <Info>
-        <Heading id={projectId}>{props.projectName}</Heading>
-        <Text>{props.text}</Text>
-        <Link href={"#"} id={linkId} aria-labelledby={labelledBy}>View Project</Link>
-      </Info>
-      <Image src={props.image} alt={props.alt}/>
+        <FlexWrapper>
+        <Info>
+          <Heading id={projectId}>{props.projectName}</Heading>
+          <Text>{props.text}</Text>
+          <Link href={"#"} id={linkId} aria-labelledby={labelledBy}>View Project</Link>
+        </Info>
+        <PhotoWrapper>
+          <Image src={props.image} alt={props.alt} />
+        </PhotoWrapper>
+      </FlexWrapper>
     </StyledProject>
   )
 }
@@ -48,16 +53,21 @@ const Text = styled.p`
     color: ${theme.colors.font.minor};
 `;
 
+const PhotoWrapper = styled.div`
+  overflow: hidden;
+  width: 50%;
+`;
+
 const StyledProject = styled.div`
   height: 526px;
-  display: flex;
   border-radius: 24px;
   overflow: hidden;
 `;
 
 const Image = styled.img`
   object-fit: cover;
-  width: 50%;
+  width: 100%;
+  height: 100%;
 `;
 
 const Info = styled.div`
