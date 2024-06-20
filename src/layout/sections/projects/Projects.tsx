@@ -38,8 +38,13 @@ export const Projects = () => {
 const StyledProjects = styled.section`
   margin-top: 144px;
 
-  div:nth-child(even) > img {
+  ${FlexWrapper} > div:nth-child(even) div + div {
     order: -1;
+  }
+
+  ${FlexWrapper} > div:first-child img {
+    transform: scale(1.3);
+    object-position: -55px -170px;
   }
 
   ${SectionHeading} {
