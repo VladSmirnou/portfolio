@@ -43,8 +43,8 @@ const StyledProjects = styled.section`
   }
 
   ${FlexWrapper} > div:first-child img {
-    transform: scale(1.3);
-    object-position: -55px -170px;
+    transform: translate(-70px, -75px) scale(1.3);
+    /* object-position: -55px -170px; */
   }
 
   ${SectionHeading} {

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { SectionHeading } from '../../../components/SectionHeading';
-import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Container } from '../../../components/Container';
 import { skillData } from '../../../assets/images/relay';
 
@@ -22,6 +21,7 @@ export const Skills = () => {
     </StyledSkills>
   )
 }
+
 
 const GridWrapper = styled.div`
   display: grid;
