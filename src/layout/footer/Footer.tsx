@@ -33,13 +33,19 @@ export const Footer = () => {
   )
 }
 
+
 const StyledFooter = styled.footer`
-  min-height: calc(100vw / 4.1860465116279069767441860465116);
+  height: calc(100vw / 4.1860465116279069767441860465116);
   background-image: url(${foogerSvg});
+
   background-position: bottom;
   background-size: 100%;
   background-repeat: no-repeat;
-  padding-bottom: calc(100vw / 6);
+
+  @media screen and (max-width: 1440px) {
+    height: auto;
+    padding-bottom: calc( (100vw - 375px) / (1440 - 375) * (240 - 180) + 180px );
+  }
 `;
 
 const SocialList = styled.ul`
