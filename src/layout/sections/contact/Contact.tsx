@@ -27,7 +27,6 @@ export const Contact = () => {
 
 
 const StyledContact = styled.section`
-  max-width: 1440px;
   margin: 144px auto 56px;
 
   ${SectionHeading} {
