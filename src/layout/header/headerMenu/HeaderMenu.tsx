@@ -2,21 +2,21 @@ import styled from "styled-components"
 
 
 type HeaderMenuPropsType = {
-  menuLinks: Array<string>;
+  menuLinks: string[];
 }
 
 export const HeaderMenu = (props: HeaderMenuPropsType) => {
   return (
     <StyledHeaderMenu>
-      <MenuList>
+      <Menu>
         {props.menuLinks.map((el, i) => {
           return (
-            <MenuListItem key={i}>
-              <MenuListItemLink href={"#"}>{el}</MenuListItemLink>
-            </MenuListItem>
+            <ListItem key={i}>
+              <ListItemLink href={"#"}>{el}</ListItemLink>
+            </ListItem>
           )
         })}
-      </MenuList>
+      </Menu>
     </StyledHeaderMenu>
   )
 }
@@ -24,14 +24,14 @@ export const HeaderMenu = (props: HeaderMenuPropsType) => {
 
 const StyledHeaderMenu = styled.nav``;
 
-const MenuList = styled.ul`
+const Menu = styled.ul`
   display: flex;
   gap: 48px;
 `;
 
-const MenuListItem = styled.li``;
+const ListItem = styled.li``;
 
-const MenuListItemLink = styled.a`
+const ListItemLink = styled.a`
   font-family: Raleway, sans-serif;
   font-weight: 500;
   font-size: 18px;
