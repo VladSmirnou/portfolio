@@ -14,7 +14,7 @@ export const Main = () => {
       <Container>
         <Intro>
           <MainHeading>Software Developer</MainHeading>
-          <div>
+          <HeadingSeparator>
             <SectionHeading textAlign={"left"} noDecorate>Hello, my name is Vahid Navazan</SectionHeading>
             <Text>
               Short text with details about you, what you do or your professional career. You can add more information on the about page.
@@ -23,7 +23,7 @@ export const Main = () => {
               <LinkProj href={"#"}>Projects</LinkProj>
               <LinkLinkedin href={"#"}>LinkedIn</LinkLinkedin>
             </FlexWrapper>
-          </div>
+          </HeadingSeparator>
         </Intro>
         <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
       </Container>
@@ -31,6 +31,8 @@ export const Main = () => {
   )
 }
 
+
+const HeadingSeparator = styled.div``;
 
 const Text = styled.p `
   font-family: Nunito, sans-serif;
