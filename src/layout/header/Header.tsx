@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FlexWrapper } from '../../components/FlexWrapper';
 import { Container } from '../../components/Container';
 import { HeaderMenu } from './headerMenu/HeaderMenu';
-
+import { MobileMenu } from './MobileMenu/MobileMenu';
 
 const menuLinks = [
   'About',
@@ -20,7 +20,8 @@ export const Header = () => {
           <Logo>
             <Name href={"#"}>Vahid Navazan</Name>
           </Logo>
-          <HeaderMenu menuLinks={menuLinks}/>
+          <HeaderMenu menuLinks={menuLinks} />
+          <MobileMenu menuLinks={menuLinks} />
         </FlexWrapper>
       </Container>
     </StyledHeader>
@@ -54,4 +55,5 @@ const Name = styled.a`
   font-weight: 700;
   font-size: 18px;
   line-height: 32px;
+  white-space: nowrap;
 `

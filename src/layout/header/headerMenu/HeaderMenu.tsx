@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { theme } from "../../../styles/Theme";
 
 
 type HeaderMenuPropsType = {
@@ -22,7 +23,11 @@ export const HeaderMenu = (props: HeaderMenuPropsType) => {
 }
 
 
-const StyledHeaderMenu = styled.nav``;
+const StyledHeaderMenu = styled.nav`
+  @media ${theme.media.tablet} {
+    display: none;
+  }
+`;
 
 const Menu = styled.ul`
   display: flex;
