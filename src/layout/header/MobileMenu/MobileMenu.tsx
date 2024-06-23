@@ -9,11 +9,11 @@ type HeaderMenuPropsType = {
 export const MobileMenu = (props: HeaderMenuPropsType) => {
   return (
     <StyledMobileMenu>
-      <BurgerButton isOpen={false}>
+      <BurgerButton isOpen={true}>
         <span></span>
       </BurgerButton>
 
-      <MobileMenuPopup isOpen={false}>
+      <MobileMenuPopup isOpen={true}>
         <ul>
           {props.menuLinks.map((el, i) => {
             return (
@@ -63,11 +63,10 @@ const BurgerButton = styled.button<{isOpen: boolean}>`
       position: absolute;
       content: "";
       display: block;
-      width: 20px;
-      height: 2px;
+      width: 100%;
+      height: 100%;
       background-color: black;
       ${props => props.isOpen && css`
-        width: 25px;
         background-color: ${theme.colors.brand};
       `};
     };
