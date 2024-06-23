@@ -73,7 +73,7 @@ const Photo = styled.img`
 `;
 
 const StyledMain = styled.section`
-  position: relative;
+  /* position: relative; */
   padding-top: 110px;
 
   &::before {
