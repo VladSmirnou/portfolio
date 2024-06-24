@@ -31,6 +31,10 @@ const StyledContact = styled.section`
 
   ${SectionHeading} {
     margin-bottom: 88px;
+
+    @media ${theme.media.mobile} {
+      margin-bottom: 58px;
+    }
   }
 `;
 
@@ -52,8 +56,6 @@ const Form = styled.form`
     resize: none;
     height: 160px;
   }
-
-  margin-bottom: 56px;
 `;
 
 const Field = styled.input`

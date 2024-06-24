@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../styles/Theme";
 
 
 export const Container = styled.div`
@@ -8,7 +9,7 @@ export const Container = styled.div`
   margin: 0 auto;
   outline: 1px solid red;
   
-  @media screen and (max-width: 375px) {
+  @media ${theme.media.tablet} {
     padding: 0 15px;
   }
 `;

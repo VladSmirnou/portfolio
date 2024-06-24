@@ -29,7 +29,7 @@ export const Project = (props: ProjectPropsType) => {
   ]: string[] = getProjectData(props);
   return (
     <StyledProject>
-        <FlexWrapper>
+      <FlexWrapper>
         <Info>
           <Heading id={projectId}>{props.projectName}</Heading>
           <Text>{props.text}</Text>
@@ -53,15 +53,43 @@ const Text = styled.p`
     color: ${theme.colors.font.minor};
 `;
 
+const Info = styled.div`
+  padding: 160px 40px 160px 50px;
+  width: 50%;
+  background-color: ${theme.colors.secondaryBg};
+
+  @media ${theme.media.mobile} {
+    padding: 146px 27px 146px 35px;
+  }
+`;
+
 const PhotoWrapper = styled.div`
   overflow: hidden;
   width: 50%;
 `;
 
 const StyledProject = styled.div`
-  height: 526px;
   border-radius: 24px;
   overflow: hidden;
+
+  @media ${theme.media.mobile} {
+  }
+  
+  @media ${theme.media.mobile} {
+    ${FlexWrapper} {
+      flex-wrap: wrap-reverse;
+      min-height: 1047px;
+      align-items: center;
+    }
+
+    ${PhotoWrapper}, ${Info} {
+      width: 100%;
+    }
+
+    ${PhotoWrapper} {
+      height: 50%;
+    }
+  }
 `;
 
 const Image = styled.img`
@@ -70,11 +98,6 @@ const Image = styled.img`
   height: 100%;
 `;
 
-const Info = styled.div`
-  padding: 146px 39px 147px 50px;
-  width: 50%;
-  background-color: ${theme.colors.secondaryBg};
-`;
 
 const Link = styled.a`
   display: flex;

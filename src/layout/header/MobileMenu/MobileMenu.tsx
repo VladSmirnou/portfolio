@@ -10,7 +10,7 @@ export const MobileMenu = (props: HeaderMenuPropsType) => {
   return (
     <StyledMobileMenu>
 
-      <MobileMenuPopup isOpen={true}>
+      <MobileMenuPopup isOpen={false}>
         <ul>
           {props.menuLinks.map((el, i) => {
             return (
@@ -22,7 +22,7 @@ export const MobileMenu = (props: HeaderMenuPropsType) => {
         </ul>
       </MobileMenuPopup>
       
-      <BurgerButton isOpen={true}>
+      <BurgerButton isOpen={false}>
         <span></span>
       </BurgerButton>
     </StyledMobileMenu>
