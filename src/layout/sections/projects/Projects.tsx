@@ -41,10 +41,6 @@ const StyledProjects = styled.section`
 
   ${FlexWrapper} > div:nth-child(even) div + div {
     order: -1;
-    
-    @media ${theme.media.mobile} {
-      order: 0;
-    }
   }
 
   ${FlexWrapper} > div:first-child img {

@@ -59,8 +59,7 @@ const Info = styled.div`
   background-color: ${theme.colors.secondaryBg};
   
   @media ${theme.media.mobile} {
-    min-height: 524px;
-    padding: 146px 27px 145px 35px;
+    padding: 146px 27px 146px 35px;
   }
 `;
 
@@ -74,11 +73,9 @@ const StyledProject = styled.div`
   overflow: hidden;
 
   @media ${theme.media.mobile} {
-  }
-  
-  @media ${theme.media.mobile} {
     ${FlexWrapper} {
-      flex-wrap: wrap-reverse;
+      display: grid;
+      grid-auto-rows: 1fr;
     }
 
     ${PhotoWrapper}, ${Info} {
@@ -86,7 +83,7 @@ const StyledProject = styled.div`
     }
 
     ${PhotoWrapper} {
-      height: 524px;
+      order: -1;
     }
   }
 `;
