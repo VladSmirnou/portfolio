@@ -32,9 +32,15 @@ const GridWrapper = styled.div`
 
   gap: 74px 90px;
 
-  @media ${theme.media.skillGrid} {
+  @media ${theme.media.mobile} {
     padding: 0 20px;
     gap: 50px 65px;
+
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  @media ${theme.media.lessThanMin} {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -50,7 +56,7 @@ const StyledSkills = styled.section`
   ${SectionHeading} {
     margin-bottom: 82px;
 
-    @media ${theme.media.skillGrid} {
+    @media ${theme.media.mobile} {
       margin-bottom: 58px;
     }
   }
