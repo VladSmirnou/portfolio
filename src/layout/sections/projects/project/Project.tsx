@@ -74,9 +74,6 @@ const StyledProject = styled.div`
   overflow: hidden;
 
   @media ${theme.media.mobile} {
-  }
-  
-  @media ${theme.media.mobile} {
     ${FlexWrapper} {
       flex-wrap: wrap-reverse;
     }
