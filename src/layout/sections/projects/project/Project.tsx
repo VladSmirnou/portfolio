@@ -54,12 +54,13 @@ const Text = styled.p`
 `;
 
 const Info = styled.div`
-  padding: 160px 40px 160px 50px;
+  padding: 160px 40px 159px 50px;
   width: 50%;
   background-color: ${theme.colors.secondaryBg};
-
+  
   @media ${theme.media.mobile} {
-    padding: 146px 27px 146px 35px;
+    min-height: 524px;
+    padding: 146px 27px 145px 35px;
   }
 `;
 
@@ -78,8 +79,6 @@ const StyledProject = styled.div`
   @media ${theme.media.mobile} {
     ${FlexWrapper} {
       flex-wrap: wrap-reverse;
-      min-height: 1047px;
-      align-items: center;
     }
 
     ${PhotoWrapper}, ${Info} {
@@ -87,7 +86,7 @@ const StyledProject = styled.div`
     }
 
     ${PhotoWrapper} {
-      height: 50%;
+      height: 524px;
     }
   }
 `;
