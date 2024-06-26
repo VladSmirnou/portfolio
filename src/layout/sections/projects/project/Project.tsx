@@ -67,6 +67,7 @@ const Info = styled.div`
 const PhotoWrapper = styled.div`
   overflow: hidden;
   width: 50%;
+  aspect-ratio: 2;
 `;
 
 const StyledProject = styled.div`

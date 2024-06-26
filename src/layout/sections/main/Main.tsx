@@ -74,6 +74,7 @@ const Photo = styled.img`
 
 const StyledMain = styled.section`
   /* position: relative; */
+  margin: auto;
   padding-top: 110px;
 
   &::before {

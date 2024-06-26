@@ -29,6 +29,10 @@ export const Contact = () => {
 const StyledContact = styled.section`
   margin: 144px auto 56px;
 
+  @media ${theme.media.mobile} {
+    margin: 80px auto 56px;
+  }
+
   ${SectionHeading} {
     margin-bottom: 88px;
 

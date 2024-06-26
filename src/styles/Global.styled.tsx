@@ -42,4 +42,13 @@ export const GlobalStyle = createGlobalStyle`
   a, button {
     height: 43px;
   }
+
+  section {
+    margin-top: 144px;
+
+    @media ${theme.media.mobile} {
+      margin-top: 80px;
+    }
+  }
+  
 `
