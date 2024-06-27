@@ -65,6 +65,7 @@ const Info = styled.div`
 `;
 
 const PhotoWrapper = styled.div`
+  position: relative;
   overflow: hidden;
   width: 50%;
   aspect-ratio: 2;

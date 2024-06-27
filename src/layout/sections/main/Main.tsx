@@ -6,6 +6,7 @@ import { SectionHeading } from '../../../components/SectionHeading';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Container } from '../../../components/Container';
 import { theme } from '../../../styles/Theme';
+import { font } from '../../../styles/Common';
 
 
 export const Main = () => {
@@ -45,15 +46,27 @@ const Text = styled.p `
 
 const Intro = styled.div`
   max-width: 508px;
-  min-height: 408px;
 
   ${SectionHeading} {
-    font-family: Roboto, sans-serif;
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 77px;
-    color: ${theme.colors.font.medium};
+    ${font({
+      family: "Roboto, sans-serif",
+      weight: 700,
+      lineHeight: 77,
+      color: theme.colors.font.major,
+      Fmin: 42,
+      Fmax: 64,
+      LHmin: 50,
+      LHmax: 77
+    })}
     margin-top: 12px;
+  }
+
+  @media (min-width: 1440px) {
+
+    & ${SectionHeading} {
+      line-height: 77px;
+      font-size: 64px;
+    }
   }
 `;
 
@@ -68,21 +81,25 @@ const Photo = styled.img`
   mask-position: left bottom;
 
   position: absolute;
-  left: 50%;
+  /* left: 50%; */
+  right: -120px;
   top: 0;
 `;
 
 const StyledMain = styled.section`
-  /* position: relative; */
   margin: auto;
-  padding-top: 110px;
+  
+  ${Container} {
+    position: relative;
+    padding-top: 110px;
 
-  &::before {
-    content: url(${photoMask});
-    position: absolute;
-    left: 50%;
-    top: -248px;
-    z-index: -1;
+    &::before {
+      content: url(${photoMask});
+      position: absolute;
+      right: -177px;
+      top: -248px;
+      z-index: -1;
+    }
   }
 `;
 

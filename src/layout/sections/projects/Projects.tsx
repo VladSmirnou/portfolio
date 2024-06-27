@@ -46,26 +46,12 @@ const StyledProjects = styled.section`
   }
 
   ${FlexWrapper} > div:first-child img {
-    transform: translate(-70px, -75px) scale(1.3);
-
-    @media (max-width: 1000px) {
-      transform: translate(-50px, -75px) scale(1.3);
-      object-position: right;
-    }
-
-    @media (max-width: 800px) {
-      transform: translate(calc(
-        40px - (40 - -50) * (100vw - 577px) / (800 - 577)
-      ), -75px) scale(1.3);
-    }
-
-    @media ${theme.media.mobile} {
-      transform: translate(calc(
-        -50px - (-50 - -70) * (100vw - 375px) / (577 - 375)
-      ), -75px) scale(1.3);
-    } 
+    position: absolute;
+    width: 135%;
+    height: 100%;
+    right: 0;
   }
-
+  
   ${SectionHeading} {
     margin-bottom: 88px;
     
