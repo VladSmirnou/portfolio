@@ -2,11 +2,7 @@ import styled, { css } from "styled-components"
 import { theme } from "../../../styles/Theme";
 
 
-type HeaderMenuPropsType = {
-  menuLinks: string[];
-}
-
-export const MobileMenu = (props: HeaderMenuPropsType) => {
+export const MobileMenu = (props: { menuLinks: string[] }) => {
   return (
     <StyledMobileMenu>
 

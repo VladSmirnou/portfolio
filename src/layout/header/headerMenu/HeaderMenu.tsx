@@ -2,11 +2,7 @@ import styled from "styled-components"
 import { theme } from "../../../styles/Theme";
 
 
-type HeaderMenuPropsType = {
-  menuLinks: string[];
-}
-
-export const HeaderMenu = (props: HeaderMenuPropsType) => {
+export const HeaderMenu = (props: { menuLinks: string[] }) => {
   return (
     <StyledHeaderMenu>
       <Menu>

@@ -26,12 +26,61 @@ export const Main = () => {
             </FlexWrapper>
           </HeadingSeparator>
         </Intro>
-        <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
+        <Window>
+          <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
+        </Window>
       </Container>
     </StyledMain>
   )
 }
 
+
+const Photo = styled.img`
+  position: absolute;
+  object-fit: cover;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 25px 30px 0 30px;
+  object-position: 50px;
+
+  width: 720px;
+  height: 629px;
+  mask-image: url(${photoMask});
+  mask-position: left bottom;
+`;
+
+const Window = styled.div`
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  left: 0;
+  height: 1200px;
+
+  &::before {
+    content: url(${photoMask});
+    position: absolute;
+    left: 50%;
+    height: 877px;
+    top: calc(50% - 124px);
+    transform: translateY(-50%);
+  }
+
+  @media (width < 1440px) {
+    ${Photo} {
+      left: auto;
+      right: -9px;
+      /* right: 0 */
+    }
+
+    &::before {
+      left: auto;
+      right: -66px;
+      /* right: -57px */
+    }
+  }
+`;
 
 const HeadingSeparator = styled.div``;
 
@@ -62,7 +111,6 @@ const Intro = styled.div`
   }
 
   @media (min-width: 1440px) {
-
     & ${SectionHeading} {
       line-height: 77px;
       font-size: 64px;
@@ -70,36 +118,13 @@ const Intro = styled.div`
   }
 `;
 
-const Photo = styled.img`
-  object-fit: cover;
-
-  padding: 25px 30px 0 30px;
-  object-position: 50px;
-  width: 720px;
-  height: 629px;
-  mask-image: url(${photoMask});
-  mask-position: left bottom;
-
-  position: absolute;
-  /* left: 50%; */
-  right: -120px;
-  top: 0;
-`;
-
 const StyledMain = styled.section`
+  padding-top: 111px;
   margin: auto;
-  
-  ${Container} {
-    position: relative;
-    padding-top: 110px;
 
-    &::before {
-      content: url(${photoMask});
-      position: absolute;
-      right: -177px;
-      top: -248px;
-      z-index: -1;
-    }
+  ${Container} {
+    display: flex;
+    align-items: center;
   }
 `;
 
