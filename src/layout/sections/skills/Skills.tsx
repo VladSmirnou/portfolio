@@ -51,6 +51,12 @@ const SkillImg = styled.img`
 `;
 
 const StyledSkills = styled.section`
+  margin-top: 254px;
+  
+  @media (width <= 1250px) {
+    margin-top: 144px;
+  }
+
   @media ${theme.media.mobile} {
     margin-top: 90px;
   }

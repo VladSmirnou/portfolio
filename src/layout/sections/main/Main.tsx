@@ -13,27 +13,28 @@ export const Main = () => {
   return (
     <StyledMain>
       <Container>
-        <Intro>
-          <MainHeading>Software Developer</MainHeading>
-          <HeadingSeparator>
-            <SectionHeading textAlign={"left"} noDecorate>Hello, my name is Vahid Navazan</SectionHeading>
-            <Text>
-              Short text with details about you, what you do or your professional career. You can add more information on the about page.
-            </Text>
-            <FlexWrapper>
-              <LinkProj href={"#"}>Projects</LinkProj>
-              <LinkLinkedin href={"#"}>LinkedIn</LinkLinkedin>
-            </FlexWrapper>
-          </HeadingSeparator>
-        </Intro>
-        <Window>
-          <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
-        </Window>
+        <FlexWrapper align={"center"}>
+          <Intro>
+            <MainHeading>Software Developer</MainHeading>
+            <HeadingSeparator>
+              <SectionHeading textAlign={"left"} noDecorate>Hello, my name is Vahid Navazan</SectionHeading>
+              <Text>
+                Short text with details about you, what you do or your professional career. You can add more information on the about page.
+              </Text>
+              <FlexWrapper>
+                <LinkProj href={"#"}>Projects</LinkProj>
+                <LinkLinkedin href={"#"}>LinkedIn</LinkLinkedin>
+              </FlexWrapper>
+            </HeadingSeparator>
+          </Intro>
+          <Window>
+            <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
+          </Window>
+        </FlexWrapper>
       </Container>
     </StyledMain>
   )
 }
-
 
 const Photo = styled.img`
   position: absolute;
@@ -56,7 +57,7 @@ const Window = styled.div`
   z-index: -1;
   right: 0;
   left: 0;
-  height: 1200px;
+  height: 1130px;
 
   &::before {
     content: url(${photoMask});
@@ -67,7 +68,7 @@ const Window = styled.div`
     transform: translateY(-50%);
   }
 
-  @media (width < 1440px) {
+  @media (max-width: 1440px) {
     ${Photo} {
       left: auto;
       right: -9px;
@@ -78,6 +79,52 @@ const Window = styled.div`
       left: auto;
       right: -66px;
       /* right: -57px */
+    }
+  }
+
+  @media (max-width: 1250px) {
+    & {
+      height: 629px;
+      top: 0;
+    }
+
+    ${Photo} {
+      left: calc(50% - 28px);
+      transform: translateX(-50%);
+      top: auto;
+      bottom: 0;
+    }
+    
+    &::before {
+      top: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      right: auto;
+    }
+  }
+
+  @media (max-width: 777px) {
+    ${Photo}, &::before {
+      left: 0;
+      transform: none;
+    }
+
+    ${Photo} {
+      height: 100%;
+      width: 100%;
+      min-width: 450px;
+      max-width: 720px;
+    } 
+
+    &::before {
+      width: 100%;
+    }
+
+    & {
+      height: calc(
+        413px + (629 - 413) * (100vw - 375px) / (777 - 375)
+      );
     }
   }
 `;
@@ -116,15 +163,24 @@ const Intro = styled.div`
       font-size: 64px;
     }
   }
+
+  @media (width <= 1250px) {
+    max-width: 100%;
+  }
 `;
 
 const StyledMain = styled.section`
   padding-top: 111px;
   margin: auto;
 
-  ${Container} {
-    display: flex;
-    align-items: center;
+  @media (width <= 1250px) {
+    & > ${Container} > ${FlexWrapper} {
+      flex-direction: column-reverse;
+    }
+
+    & {
+      padding-top: 679px;
+    }
   }
 `;
 
