@@ -46,13 +46,24 @@ const MaskPhoto = styled.img`
   left: 0;
   bottom: 0;
   width: 100%;
-  max-width: 720px;
   min-width: 450px;
+  max-width: 720px;
   height: 100%;
   min-height: 395px;
   max-height: 629px;
   object-fit: cover;
-  /* object-position: center; */
+  transform: translate(
+    calc(
+      15px + (50 - 15) * (100vw - 375px) / (777 - 375)
+    ),
+    calc(
+      80px - (80 - 0) * (100vw - 375px) / (777 - 375)
+    )
+  );
+
+  @media (width <= 375px) {
+    transform: translate(15px, 80px);
+  }
 `;
 
 const Mask = styled.div`
@@ -62,7 +73,7 @@ const Mask = styled.div`
   height: 100%;
   min-width: 486px;
   min-height: 550px;
-  background-color: black;
+  background-color: ${theme.colors.brand};
   mask-image: url(${photoMask});
   mask-size: 100% 100%;
 
@@ -147,7 +158,12 @@ const Window = styled.div`
     height: calc(
       550px + (877 - 550) * (100vw - 486px) / (777 - 486)
     );
-  }  
+  }
+
+  @media (width <= 375px) {
+    top: -137px;
+    height: 550px
+  }
 `;
 
 const HeadingSeparator = styled.div``;
@@ -208,6 +224,10 @@ const StyledMain = styled.section`
     padding-top: calc(
       463px + (679 - 463) * (100vw - 375px) / (777 - 375)
     );
+  }
+
+  @media (width <= 375px) {
+    padding-top: 463px;
   }
 `;
 
