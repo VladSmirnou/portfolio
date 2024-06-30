@@ -28,6 +28,9 @@ export const Main = () => {
             </HeadingSeparator>
           </Intro>
           <Window>
+            <Mask>
+              <MaskPhoto src={MainPhoto} alt="" />
+            </Mask>
             <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
           </Window>
         </FlexWrapper>
@@ -35,6 +38,38 @@ export const Main = () => {
     </StyledMain>
   )
 }
+
+
+const MaskPhoto = styled.img`
+  position: absolute;
+  padding: 25px 30px 0 30px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 720px;
+  min-width: 450px;
+  height: 100%;
+  min-height: 395px;
+  max-height: 629px;
+  object-fit: cover;
+  /* object-position: center; */
+`;
+
+const Mask = styled.div`
+  position: relative;
+  display: none;
+  width: 100%;
+  height: 100%;
+  min-width: 486px;
+  min-height: 550px;
+  background-color: black;
+  mask-image: url(${photoMask});
+  mask-size: 100% 100%;
+
+  @media (width <= 777px) {
+    display: block;
+  }
+`;
 
 const Photo = styled.img`
   position: absolute;
@@ -52,12 +87,11 @@ const Photo = styled.img`
 `;
 
 const Window = styled.div`
-  overflow: hidden;
+  overflow: clip visible;
   position: absolute;
   z-index: -1;
   right: 0;
   left: 0;
-  height: 1130px;
 
   &::before {
     content: url(${photoMask});
@@ -104,29 +138,16 @@ const Window = styled.div`
     }
   }
 
-  @media (max-width: 777px) {
+  @media (width <= 777px) {
     ${Photo}, &::before {
-      left: 0;
-      transform: none;
+      display: none;
     }
-
-    ${Photo} {
-      height: 100%;
-      width: 100%;
-      min-width: 450px;
-      max-width: 720px;
-    } 
-
-    &::before {
-      width: 100%;
-    }
-
-    & {
-      height: calc(
-        413px + (629 - 413) * (100vw - 375px) / (777 - 375)
-      );
-    }
-  }
+    top: calc( -137px - (-137 - -248) * (100vw - 375px) / (777 - 375) );
+    
+    height: calc(
+      550px + (877 - 550) * (100vw - 486px) / (777 - 486)
+    );
+  }  
 `;
 
 const HeadingSeparator = styled.div``;
@@ -181,6 +202,12 @@ const StyledMain = styled.section`
     & {
       padding-top: 679px;
     }
+  }
+
+  @media (width <= 777px) {
+    padding-top: calc(
+      463px + (679 - 463) * (100vw - 375px) / (777 - 375)
+    );
   }
 `;
 
