@@ -54,8 +54,12 @@ const Text = styled.p`
 `;
 
 const Info = styled.div`
-  padding: 160px 40px 159px 50px;
   width: 50%;
+  min-height: 524px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 40px 60px 50px;
   background-color: ${theme.colors.secondaryBg};
   
   @media ${theme.media.mobile} {

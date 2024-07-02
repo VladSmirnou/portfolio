@@ -257,5 +257,5 @@ const LinkLinkedin = styled(LinkProj)`
   background-color: transparent;
   border-style: solid;
   border-width: 2px;
-  margin-left: 10px;
+  margin-left: 12px;
 `;
