@@ -60,7 +60,7 @@ const Mask = styled.div`
 
 const PhotoWrapper = styled.div`
   width: calc(100% - calc(
-      36px + (57 - 36) * (100% - 450px) / (777 - 450)
+      36px + (57 - 36) * (100% - 486px) / (777 - 486)
     )
   );
   aspect-ratio: 777 / 877;
