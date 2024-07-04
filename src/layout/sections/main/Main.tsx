@@ -44,7 +44,6 @@ export const Main = () => {
 
 const Mask = styled.div`
   display: none;
-  width: 100%;
   min-width: 486px;
   min-height: 550px;
   aspect-ratio: 777 / 877;
@@ -61,7 +60,7 @@ const Mask = styled.div`
 
 const PhotoWrapper = styled.div`
   width: calc(100% - calc(
-      36px + (57 - 36) * (100% - 450px) / (720 - 450)
+      36px + (57 - 36) * (100% - 450px) / (777 - 450)
     )
   );
   aspect-ratio: 777 / 877;
