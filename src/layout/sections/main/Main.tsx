@@ -29,7 +29,9 @@ export const Main = () => {
           </Intro>
           <Window>
             <Mask>
-              <MaskPhoto src={MainPhoto} alt="" />
+              <PhotoWrapper>
+                <MaskPhoto src={MainPhoto} alt="" />
+              </PhotoWrapper>
             </Mask>
             <Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
           </Window>
@@ -40,45 +42,53 @@ export const Main = () => {
 }
 
 
-const MaskPhoto = styled.img`
-  position: absolute;
-  padding: 25px 30px 0 30px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  min-width: 450px;
-  max-width: 720px;
-  height: 100%;
-  min-height: 395px;
-  max-height: 629px;
-  object-fit: cover;
-  transform: translate(
-    calc(
-      15px + (50 - 15) * (100vw - 375px) / (777 - 375)
-    ),
-    calc(
-      80px - (80 - 0) * (100vw - 375px) / (777 - 375)
-    )
-  );
-
-  @media (width <= 375px) {
-    transform: translate(15px, 80px);
-  }
-`;
-
 const Mask = styled.div`
-  position: relative;
   display: none;
   width: 100%;
-  height: 100%;
   min-width: 486px;
   min-height: 550px;
+  aspect-ratio: 777 / 877;
   background-color: ${theme.colors.brand};
   mask-image: url(${photoMask});
   mask-size: 100% 100%;
-
+  
   @media (width <= 777px) {
-    display: block;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+`;
+
+const PhotoWrapper = styled.div`
+  width: calc(100% - calc(
+      36px + (57 - 36) * (100% - 450px) / (720 - 450)
+    )
+  );
+  aspect-ratio: 777 / 877;
+  display: flex;
+  align-items: flex-end;
+`;
+
+const MaskPhoto = styled.img`
+  padding: 25px 30px 0 30px;
+  width: 100%;
+  aspect-ratio: 720 / 629;
+  max-height: 629px;
+  min-width: 450px;
+  min-height: 395px;
+  object-fit: cover;
+  /* Не знаю почему, хоть
+  конечные размеры бокса имеджа и маски совпадают пиксель в пиксель
+  по макету, у меня имэдж получается чуть меньше именно внутри своего 
+  бокса.
+   */
+  transform: translate(
+    calc(
+      30px + (50 - 30) * (100vw - 375px) / (777 - 375)
+    )
+  );
+  @media (width <= 375px) {
+    transform: translate(30px);
   }
 `;
 
@@ -154,16 +164,22 @@ const Window = styled.div`
       display: none;
     }
     top: calc( -137px - (-137 - -248) * (100vw - 375px) / (777 - 375) );
+  }
+  /* @media (width <= 777px) {
+    ${Photo}, &::before {
+      display: none;
+    }
+    top: calc( -137px - (-137 - -248) * (100vw - 375px) / (777 - 375) );
     
     height: calc(
       550px + (877 - 550) * (100vw - 486px) / (777 - 486)
     );
-  }
+  } */
 
-  @media (width <= 375px) {
+  /* @media (width <= 375px) {
     top: -137px;
     height: 550px
-  }
+  } */
 `;
 
 const HeadingSeparator = styled.div``;
