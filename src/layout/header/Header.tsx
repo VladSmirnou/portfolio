@@ -1,10 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-
-import { FlexWrapper } from '../../components/FlexWrapper';
+import { DesktopMenu } from './headerMenu/desktopMenu/DesktopMenu';
+import { MobileMenu } from './headerMenu/mobileMenu/MobileMenu';
 import { Container } from '../../components/Container';
-import { HeaderMenu } from './headerMenu/HeaderMenu';
-import { MobileMenu } from './MobileMenu/MobileMenu';
+import { S } from './Header_Styles';
+
 
 const menuLinks = [
   'About',
@@ -12,48 +11,26 @@ const menuLinks = [
   'Contacts',
 ]
 
-export const Header = () => {
+export const Header: React.FC = () => {
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const breakpoint = 769;
+
+  React.useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, [])
+
   return (
-    <StyledHeader>
+    <S.Header>
       <Container>
-        <FlexWrapper justify={"space-between"} align={"center"}>
-          <Logo>
-            <Name href={"#"}>Vahid Navazan</Name>
-          </Logo>
-          <HeaderMenu menuLinks={menuLinks} />
-          <MobileMenu menuLinks={menuLinks} />
-        </FlexWrapper>
+        <S.Logo>
+          <S.Name href={"#"}>Vahid Navazan</S.Name>
+        </S.Logo>
+        { width < breakpoint ? <MobileMenu menuLinks={menuLinks} />
+          : <DesktopMenu menuLinks={menuLinks} />
+        }
       </Container>
-    </StyledHeader>
+    </S.Header>
   )
 }
-
-
-const StyledHeader = styled.header`
-  height: 56px;
-  margin: 0 auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-
-  ${Container} {
-    display: flex;
-    align-items: center;
-
-    ${FlexWrapper} {
-      flex-grow: 1;
-    }
-  }
-`;
-
-const Logo = styled.span``;
-
-const Name = styled.a`
-  font-family: Comfortaa, sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 32px;
-  white-space: nowrap;
-`

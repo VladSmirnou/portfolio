@@ -1,38 +1,19 @@
-import styled, { css } from "styled-components"
+import styled, { css } from "styled-components";
 import { theme } from "../../../styles/Theme";
 
 
-export const MobileMenu = (props: { menuLinks: string[] }) => {
-  return (
-    <StyledMobileMenu>
+// Menu
+const ListItem = styled.li``;
 
-      <MobileMenuPopup isOpen={false}>
-        <ul>
-          {props.menuLinks.map((el, i) => {
-            return (
-              <ListItem key={i}>
-                <ListItemLink href={"#"}>{el}</ListItemLink>
-              </ListItem>
-            )
-          })}
-        </ul>
-      </MobileMenuPopup>
-      
-      <BurgerButton isOpen={false}>
-        <span></span>
-      </BurgerButton>
-    </StyledMobileMenu>
-  )
-}
-
-
-const StyledMobileMenu = styled.nav`
-  display: none;
-  
-  @media ${theme.media.tablet} {
-    display: block;
-  }
+const ListItemLink = styled.a`
+  font-family: Raleway, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
 `;
+
+// MobileMenu
+const MobileMenu = styled.nav``;
 
 const BurgerButton = styled.button<{isOpen: boolean}>`
   cursor: pointer;
@@ -115,11 +96,19 @@ const MobileMenuPopup = styled.ul<{isOpen: boolean}>`
   }
 `;
 
-const ListItem = styled.li``;
-
-const ListItemLink = styled.a`
-  font-family: Raleway, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 28px;
+// DesktopMenu
+const DesktopMenu = styled.nav`
+  ul {
+    display: flex;
+    gap: 48px;
+  }
 `;
+
+export const S = {
+  ListItem,
+  ListItemLink,
+  MobileMenu,
+  BurgerButton,
+  MobileMenuPopup,
+  DesktopMenu
+}
