@@ -12,7 +12,7 @@ export const Skills: React.FC = () => {
         <SectionHeading>Skills</SectionHeading>
         <S.GridWrapper>
           {Object.entries(skillData).map(
-              ([k, v], idx) => <S.SkillImg src={v} alt={k} key={idx}/>
+              ([k, v], idx) => <S.SkillImg src={v} alt={k} key={idx} role='img'/>
             )
           }
         </S.GridWrapper>
