@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { Container } from '../../components/Container';
+import { currentColorType } from "./Header";
+import { Link } from "react-scroll";
 
 
-const Header = styled.header`
+const Header = styled.header<{backgroundColor: currentColorType}>`
   height: 56px;
   margin: 0 auto;
   position: fixed;
@@ -10,6 +12,7 @@ const Header = styled.header`
   left: 0;
   right: 0;
   z-index: 1;
+  background-color: ${props => props.backgroundColor};
 
   ${Container} {
     display: flex;
@@ -20,12 +23,13 @@ const Header = styled.header`
 
 const Logo = styled.span``;
 
-const Name = styled.a`
+const Name = styled(Link)`
   font-family: Comfortaa, sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 32px;
   white-space: nowrap;
+  cursor: pointer;
 `
 
 export const S = {

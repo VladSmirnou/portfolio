@@ -6,6 +6,7 @@ import { Skills } from './layout/sections/skills/Skills';
 import { Projects } from './layout/sections/projects/Projects';
 import { Contact } from './layout/sections/contact/Contact';
 import { Footer } from './layout/footer/Footer';
+import { GoTopBtn } from './components/goTopBtn/GoTopBtn';
 
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
       <Projects />
       <Contact />
       <Footer />
+      <GoTopBtn />
     </div>
   );
 }

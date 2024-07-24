@@ -22,6 +22,10 @@ const Main = styled.section`
   }
 
   @media (width <= 777px) {
+    /* height is smaller than width, so 679 height / 777 width ~ 0.874.
+    It means that height (which is represented by the padding top) is always
+    equal to 87.4% of the current width.
+     */
     padding-top: clamp(463px, 87.4%, 679px);
   }
 `;
@@ -38,20 +42,32 @@ const Mask = styled.div`
   display: flex;
   align-items: flex-end;
   
+  @media (width <= 1440px) {
+    left: auto;
+    right: -66px;
+  }
+
+  @media (width <= 1250px) {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+  }
+
   @media (width <= 777px) {
     position: static;
-    transform: none !important;
-  
-    min-height: 550px;
+    transform: none;
     height: auto;
     width: auto;
+  
+    min-height: 550px;
     aspect-ratio: 777 / 877;
-    margin-top: calc(
-      -137px - (-137 - -248) * (100vw - 375px) / (777 - 375)
-    );
-  }
-  @media (width <= 375px) {
-    margin-top: -137px;
+    margin-top: clamp(
+      -248px,
+      calc(
+        -137px - (-137 - -248) * (100vw - 375px) / (777 - 375)
+      ),
+      -137px
+    )
   }
 `;
 
@@ -90,21 +106,6 @@ const MaskPhoto = styled.img`
   }
 `;
 
-const Photo = styled.img`
-  position: absolute;
-  object-fit: cover;
-  left: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 25px 30px 0 30px;
-  object-position: 50px;
-
-  width: 720px;
-  height: 629px;
-  mask-image: url(${photoMask});
-  mask-position: left bottom;
-`;
-
 const Window = styled.div`
   overflow: clip visible;
   position: absolute;
@@ -112,24 +113,9 @@ const Window = styled.div`
   right: 0;
   left: 0;
 
-  @media (max-width: 1440px) {
-    ${Mask} {
-      left: auto;
-      right: -66px;
-    }
-  }
-
-  @media (max-width: 1250px) {
-    & {
-      height: 629px;
-      top: 0;
-    }
-
-    ${Mask} {
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 0;
-    }
+  @media (width <= 1250px) {
+    height: 629px;
+    top: 0;
   }
 `;
 
@@ -161,7 +147,7 @@ const Intro = styled.div`
     margin-top: 12px;
   }
 
-  @media (min-width: 1440px) {
+  @media (width >= 1440px) {
     & ${SectionHeading} {
       line-height: 77px;
       font-size: 64px;
@@ -169,7 +155,7 @@ const Intro = styled.div`
   }
 
   @media (width <= 1250px) {
-    max-width: 100%;
+    max-width: none;
   }
 `;
 
@@ -213,5 +199,4 @@ export const S = {
   LinkProj,
   LinkLinkedin,
   Window,
-  Photo
 }

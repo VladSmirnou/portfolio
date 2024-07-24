@@ -8,7 +8,7 @@ import { S } from './Main_Styles';
 
 export const Main: React.FC = () => {
   return (
-    <S.Main>
+    <S.Main id="about">
       <Container>
         <FlexWrapper align={"center"}>
           <S.Intro>

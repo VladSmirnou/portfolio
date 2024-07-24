@@ -8,7 +8,7 @@ export const Menu: React.FC<{ menuLinks: string[] }> = (props: { menuLinks: stri
       {props.menuLinks.map((el, i) => {
         return (
           <S.ListItem key={i}>
-            <S.ListItemLink href={"#"}>{el}</S.ListItemLink>
+            <S.ListItemLink to={el.toLowerCase()} smooth offset={-50} >{el}</S.ListItemLink>
           </S.ListItem>
         )
       })}

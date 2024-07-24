@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { DesktopMenu } from './headerMenu/desktopMenu/DesktopMenu';
 import { MobileMenu } from './headerMenu/mobileMenu/MobileMenu';
 import { Container } from '../../components/Container';
@@ -11,6 +11,8 @@ const menuLinks = [
   'Contacts',
 ]
 
+export type currentColorType = 'transparent' | 'rgba(163, 163, 163, 0.3)';
+
 export const Header: React.FC = () => {
   const [width, setWidth] = React.useState(window.innerWidth);
   const breakpoint = 769;
@@ -21,11 +23,19 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('resize', handleWindowResize);
   }, [])
 
+  const [currentColor, setColor] = useState<currentColorType>('transparent');
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      window.scrollY > 500 ? setColor('rgba(163, 163, 163, 0.3)') : setColor('transparent');
+    })
+  }, []);
+
   return (
-    <S.Header>
+    <S.Header backgroundColor={currentColor}>
       <Container>
         <S.Logo>
-          <S.Name href={"#"}>Vahid Navazan</S.Name>
+          <S.Name to={"about"} smooth >Vahid Navazan</S.Name>
         </S.Logo>
         { width < breakpoint ? <MobileMenu menuLinks={menuLinks} />
           : <DesktopMenu menuLinks={menuLinks} />

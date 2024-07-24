@@ -9,7 +9,7 @@ import { S } from './Projects_Styles';
 
 export const Projects: React.FC = () => {
   return (
-    <S.Projects>
+    <S.Projects id='projects'>
       <Container>
         <SectionHeading>Projects</SectionHeading>
         <FlexWrapper direction={"column"}>
