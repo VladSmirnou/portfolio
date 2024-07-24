@@ -22,50 +22,69 @@ const Main = styled.section`
   }
 
   @media (width <= 777px) {
-    /* 679px is the initial padding */
-    padding-top: 87.4%;
-  }
-
-  @media (width <= 486px) {
-    /* 486px is the min width of the mask, so it won't scale further */
-    padding-top: 463px;
+    padding-top: clamp(463px, 87.4%, 679px);
   }
 `;
 
 const Mask = styled.div`
-  display: none;
-  min-height: 550px;
-  aspect-ratio: 777 / 877;
+  position: absolute;
+  width: 777px;
+  height: 877px;
+  left: 50%;
+  bottom: -315px;
   background-color: ${theme.colors.brand};
   mask-image: url(${photoMask});
   mask-size: 100% 100%;
+  display: flex;
+  align-items: flex-end;
   
   @media (width <= 777px) {
-    display: flex;
-    align-items: flex-end;
+    position: static;
+    transform: none !important;
+  
+    min-height: 550px;
+    height: auto;
+    width: auto;
+    aspect-ratio: 777 / 877;
+    margin-top: calc(
+      -137px - (-137 - -248) * (100vw - 375px) / (777 - 375)
+    );
+  }
+  @media (width <= 375px) {
+    margin-top: -137px;
   }
 `;
 
 const MaskPhoto = styled.img`
+
   padding: 25px 30px 0 30px;
-  width: calc(100% - calc(
-      36px + (57 - 36) * (100% - 486px) / (777 - 486)
-    )
-  );
-  aspect-ratio: 720 / 629;
-  min-width: 450px;
-  min-height: 395px;
+  width: 720px;
+  height: 629px;
   object-fit: cover;
+  object-position: 50px;
   /* Не знаю почему, хоть
   конечные размеры бокса имеджа и маски совпадают пиксель в пиксель
   по макету, у меня имэдж получается чуть меньше именно внутри своего 
   бокса.
    */
-  transform: translate(
-    calc(
-      30px + (50 - 30) * (100vw - 375px) / (777 - 375)
-    )
-  );
+  
+  @media (width <= 777px) {
+    object-position: 0;
+    height: auto;
+    width: calc(100% - calc(
+      36px + (57 - 36) * (100% - 486px) / (777 - 486)
+      )
+    );
+    aspect-ratio: 720 / 629;
+    min-width: 450px;
+    min-height: 395px;
+    transform: translate(
+      calc(
+          30px + (50 - 30) * (100vw - 375px) / (777 - 375)
+        )
+      );
+    }
+
   @media (width <= 375px) {
     transform: translate(30px);
   }
@@ -93,26 +112,10 @@ const Window = styled.div`
   right: 0;
   left: 0;
 
-  &::before {
-    content: url(${photoMask});
-    position: absolute;
-    left: 50%;
-    height: 877px;
-    top: calc(50% - 124px);
-    transform: translateY(-50%);
-  }
-
   @media (max-width: 1440px) {
-    ${Photo} {
-      left: auto;
-      right: -9px;
-      /* right: 0 */
-    }
-
-    &::before {
+    ${Mask} {
       left: auto;
       right: -66px;
-      /* right: -57px */
     }
   }
 
@@ -122,35 +125,12 @@ const Window = styled.div`
       top: 0;
     }
 
-    ${Photo} {
-      left: calc(50% - 28px);
-      transform: translateX(-50%);
-      top: auto;
-      bottom: 0;
-    }
-    
-    &::before {
-      top: auto;
+    ${Mask} {
       left: 50%;
       transform: translateX(-50%);
       bottom: 0;
-      right: auto;
     }
   }
-
-  @media (width <= 777px) {
-    ${Photo}, &::before {
-      display: none;
-    }
-    height: auto;
-    top: calc(
-      -137px - (-137 - -248) * (100vw - 375px) / (777 - 375)
-    );
-  }
-
-  @media (width <= 375px) {
-    top: -137px;
-  } 
 `;
 
 const HeadingSeparator = styled.div``;

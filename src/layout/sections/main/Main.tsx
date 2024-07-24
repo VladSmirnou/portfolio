@@ -26,9 +26,8 @@ export const Main: React.FC = () => {
           </S.Intro>
           <S.Window>
             <S.Mask>
-              <S.MaskPhoto src={MainPhoto} alt="" />
+              <S.MaskPhoto src={MainPhoto} alt="Автор портфолио на нейтральном фоне" />
             </S.Mask>
-            <S.Photo src={MainPhoto} alt={"Автор портфолио на нейтральном фоне"}/>
           </S.Window>
         </FlexWrapper>
       </Container>
