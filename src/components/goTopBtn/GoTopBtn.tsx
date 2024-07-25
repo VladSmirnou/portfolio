@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Icon } from '../icon/Icon';
+import { animateScroll as scroll } from 'react-scroll';
 
 
 export const GoTopBtn = () => {
@@ -15,11 +16,10 @@ export const GoTopBtn = () => {
 
   return (
     <>
-      {showBtn && <StyledGoTopBtn>
+      {showBtn && <StyledGoTopBtn onClick={ scroll.scrollToTop }>
         <Icon iconId={'arrowGoTop'} width={16} height={15} boxConf='0 0 16 15'/>
       </StyledGoTopBtn>}
     </>
-
   )
 }
 
@@ -36,6 +36,7 @@ const StyledGoTopBtn = styled.button`
   justify-content: center;
   align-items: center;
 
+  cursor: pointer;
   use {
     fill: black;
   }

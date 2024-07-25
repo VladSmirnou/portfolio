@@ -4,10 +4,10 @@ import { theme } from '../../styles/Theme';
 
 
 const Footer = styled.footer`
+  height: calc(100vw / 4.1860465116279069767441860465116);
   /* (1440 / 344 = 4.1860...) => width is 4.18600 times bigger than height,
   so in order to calculate height I need to divide width at 4.1860...
   */
-  height: calc(100vw / 4.1860465116279069767441860465116);
   background-image: url(${foogerSvg});
 
   background-position: bottom;
@@ -16,7 +16,9 @@ const Footer = styled.footer`
 
   @media (width <= 1440px) {
     height: auto;
-    padding-bottom: calc( (100vw - 375px) / (1440 - 375) * (240 - 180) + 180px );
+    padding-bottom: calc(
+      (100vw - 375px) / (1440 - 375) * (240 - 180) + 180px
+    );
   }
 `;
 

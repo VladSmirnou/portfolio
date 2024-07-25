@@ -1,6 +1,6 @@
-import { Menu } from "../menu/Menu";
+import { DesktopMenuLinks } from "./desktopMenuLinks/DesktopMenuLinks";
 import React from "react";
-import { S } from "../HeaderMenu_Styles";
+import { S } from "./DesktopMenu_Styles";
 
 
 export const DesktopMenu: React.FC<{menuLinks: string[]}> = (
@@ -8,7 +8,7 @@ export const DesktopMenu: React.FC<{menuLinks: string[]}> = (
 ) => {
   return (
     <S.DesktopMenu>
-      <Menu menuLinks={props.menuLinks}/>
+      <DesktopMenuLinks menuLinks={props.menuLinks}/>
     </S.DesktopMenu>
   )
 }

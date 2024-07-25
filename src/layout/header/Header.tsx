@@ -11,7 +11,7 @@ const menuLinks = [
   'Contacts',
 ]
 
-export type currentColorType = 'transparent' | 'rgba(163, 163, 163, 0.3)';
+export type currentColorType = 'transparent' | 'rgba(163, 163, 163, 0.5)';
 
 export const Header: React.FC = () => {
   const [width, setWidth] = React.useState(window.innerWidth);
@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      window.scrollY > 500 ? setColor('rgba(163, 163, 163, 0.3)') : setColor('transparent');
+      window.scrollY > 500 ? setColor('rgba(163, 163, 163, 0.5)') : setColor('transparent');
     })
   }, []);
 

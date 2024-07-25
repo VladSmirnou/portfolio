@@ -13,16 +13,14 @@ export const Main: React.FC = () => {
         <FlexWrapper align={"center"}>
           <S.Intro>
             <S.MainHeading>Software Developer</S.MainHeading>
-            <S.HeadingSeparator>
-              <SectionHeading textAlign={"left"} noDecorate>Hello, my name is Vahid Navazan</SectionHeading>
-              <S.Text>
-                Short text with details about you, what you do or your professional career. You can add more information on the about page.
-              </S.Text>
-              <FlexWrapper>
-                <S.LinkProj href={"#"}>Projects</S.LinkProj>
-                <S.LinkLinkedin href={"#"}>LinkedIn</S.LinkLinkedin>
-              </FlexWrapper>
-            </S.HeadingSeparator>
+            <SectionHeading textAlign={"left"} noDecorate>Hello, my name is Vahid Navazan</SectionHeading>
+            <S.Text>
+              Short text with details about you, what you do or your professional career. You can add more information on the about page.
+            </S.Text>
+            <FlexWrapper>
+              <S.LinkProj href={"#"}>Projects</S.LinkProj>
+              <S.LinkLinkedin href={"#"}>LinkedIn</S.LinkLinkedin>
+            </FlexWrapper>
           </S.Intro>
           <S.Window>
             <S.Mask>

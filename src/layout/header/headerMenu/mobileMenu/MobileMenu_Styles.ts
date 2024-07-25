@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
-import { theme } from "../../../styles/Theme";
+import { theme } from "../../../../styles/Theme";
 import { Link } from "react-scroll";
 
-// Menu
+
 const ListItem = styled.li``;
 
 const ListItemLink = styled(Link)`
@@ -13,7 +13,7 @@ const ListItemLink = styled(Link)`
   cursor: pointer;
 `;
 
-// MobileMenu
+
 const MobileMenu = styled.nav``;
 
 const BurgerButton = styled.button<{isOpen: boolean}>`
@@ -97,19 +97,11 @@ const MobileMenuPopup = styled.ul<{isOpen: boolean}>`
   }
 `;
 
-// DesktopMenu
-const DesktopMenu = styled.nav`
-  ul {
-    display: flex;
-    gap: 48px;
-  }
-`;
 
 export const S = {
   ListItem,
   ListItemLink,
   MobileMenu,
   BurgerButton,
-  MobileMenuPopup,
-  DesktopMenu
+  MobileMenuPopup
 }

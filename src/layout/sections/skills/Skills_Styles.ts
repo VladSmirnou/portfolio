@@ -17,10 +17,6 @@ const GridWrapper = styled.div`
 
     grid-template-columns: 1fr 1fr;
   }
-  
-  @media ${theme.media.lessThanMin} {
-    grid-template-columns: 1fr;
-  }
 `;
 
 const SkillImg = styled.img`

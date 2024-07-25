@@ -22,11 +22,13 @@ const Main = styled.section`
   }
 
   @media (width <= 777px) {
-    /* height is smaller than width, so 679 height / 777 width ~ 0.874.
+    // * 777 pixels is the max-size of the mask.
+
+    padding-top: clamp(463px, 87.4%, 679px);
+    /* Height is smaller than width, so 679 height / 777 width ~ 0.874.
     It means that height (which is represented by the padding top) is always
     equal to 87.4% of the current width.
      */
-    padding-top: clamp(463px, 87.4%, 679px);
   }
 `;
 
