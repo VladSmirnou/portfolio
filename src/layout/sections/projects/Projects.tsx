@@ -1,50 +1,33 @@
 import React from 'react';
-import styled from 'styled-components';
-
 import { data } from '../../../assets/images/relay';
-
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Project } from './project/Project';
 import { SectionHeading } from '../../../components/SectionHeading';
 import { Container } from '../../../components/Container';
+import { S } from './Projects_Styles';
 
 
-export const Projects = () => {
+export const Projects: React.FC = () => {
   return (
-    <StyledProjects>
-      <Container maxWidth={992}>
+    <S.Projects id='projects'>
+      <Container>
         <SectionHeading>Projects</SectionHeading>
         <FlexWrapper direction={"column"}>
           {Object.values(data).map(
-            ({ image, alt, headingText, text }, idx) => {
+            ({ image, alt, projectName, text }, idx) => {
               return (
                 <Project
                   image={image}
                   alt={alt}
-                  idx={idx}
-                  headingText={headingText}
+                  key={idx}
+                  projectName={projectName}
                   text={text}
                 />
-                )
+              )
             }
           )}
         </FlexWrapper>
       </Container>
-    </StyledProjects>
+    </S.Projects>
   )
 }
-
-
-const StyledProjects = styled.section`
-  margin: 144px auto 0 auto;
-
-  div:nth-child(even) > img {
-    order: -1;
-  }
-  ${SectionHeading} {
-    margin-bottom: 88px;
-  }
-  ${FlexWrapper} {
-    row-gap: 80px;
-  }
-`;

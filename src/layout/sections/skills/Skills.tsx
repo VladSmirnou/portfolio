@@ -1,59 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
-
 import { SectionHeading } from '../../../components/SectionHeading';
-import { FlexWrapper } from '../../../components/FlexWrapper';
-import { Icon } from '../../../components/icon/Icon';
 import { Container } from '../../../components/Container';
-import { theme } from '../../../styles/Theme';
+import { skillData } from '../../../assets/images/relay';
+import { S } from './Skills_Styles';
 
 
-const iconIDs = [
-  'vscode',
-  'js',
-  'css',
-  'html',
-  'greensock',
-  'spiral',
-  'github',
-  'git',
-  'react',
-  'sass',
-  'boostrap',
-  'tailwind',
-];
-
-export const Skills = () => {
+export const Skills: React.FC = () => {
   return (
-    <StyledSkills>
+    <S.Skills>
       <Container>
         <SectionHeading>Skills</SectionHeading>
-        <FlexWrapper wrap={'wrap'} justify={"space-between"}>
-          {iconIDs.map(
-            el => <Icon width={"112"}
-                        height={"112"}
-                        boxConf={"0 0 120 120"}
-                        iconId={el}
-                        desc={el}/>
+        <S.GridWrapper>
+          {Object.entries(skillData).map(
+              ([k, v], idx) => <S.SkillImg src={v} alt={k} key={idx} role='img'/>
             )
           }
-        </FlexWrapper>
+        </S.GridWrapper>
       </Container>
-    </StyledSkills>
+    </S.Skills>
   )
 }
-
-
-const StyledSkills = styled.section`
-  margin-top: 144px;
-
-  ${FlexWrapper} {
-    row-gap: 74px;
-    column-gap: 96px;
-    padding: 10px;
-  }
-
-  ${SectionHeading} {
-    margin-bottom: 82px;
-  }
-`;

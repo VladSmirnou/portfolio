@@ -17,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: ${theme.colors.font.major};
-    line-height: 1.2;
     background-color: ${theme.colors.primaryBg};
   }
   
@@ -30,35 +29,26 @@ export const GlobalStyle = createGlobalStyle`
     text-align: center;
   }
 
+  a:visited {
+    color: ${theme.colors.font.major}
+  }
+
   button {
     background-color: unset;
     border: none;
+    color: ${theme.colors.font.major}
   }
 
   a, button {
     height: 43px;
   }
 
-  section > div > h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 72px;
+  section {
+    margin-top: 144px;
 
-    position: relative;
-
-    &::before {
-      content: "";
-      display: inline-block;
-      left: calc(50% - 50px);
-      right: calc(50% - 50px);
-      height: 4px;
-      border-radius: 2px;
-      background-color: black;
-      bottom: -8px;
-      background-color: ${theme.colors.brand};
-
-      position: absolute;
+    @media ${theme.media.mobile} {
+      margin-top: 80px;
     }
   }
+  
 `

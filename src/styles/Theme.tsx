@@ -14,5 +14,10 @@ export const theme = (() => {
         mainHeading: brand,
       }
     },
+
+    media: {
+      tablet: '(width <= 768px)',
+      mobile: '(width <= 576px)',
+    }
   }
-})()
+})();

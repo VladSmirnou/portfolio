@@ -1,10 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-
-import { FlexWrapper } from '../../components/FlexWrapper';
+import React, { useEffect, useState } from 'react';
+import { DesktopMenu } from './headerMenu/desktopMenu/DesktopMenu';
+import { MobileMenu } from './headerMenu/mobileMenu/MobileMenu';
 import { Container } from '../../components/Container';
-import { HeaderMenu } from './headerMenu/HeaderMenu';
-import { theme } from '../../styles/Theme';
+import { S } from './Header_Styles';
 
 
 const menuLinks = [
@@ -13,48 +11,36 @@ const menuLinks = [
   'Contacts',
 ]
 
-export const Header = () => {
+export type currentColorType = 'transparent' | 'rgba(163, 163, 163, 0.5)';
+
+export const Header: React.FC = () => {
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const breakpoint = 769;
+
+  React.useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, [])
+
+  const [currentColor, setColor] = useState<currentColorType>('transparent');
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      window.scrollY > 500 ? setColor('rgba(163, 163, 163, 0.5)') : setColor('transparent');
+    })
+  }, []);
+
   return (
-    <StyledHeader>
+    <S.Header backgroundColor={currentColor}>
       <Container>
-        <FlexWrapper justify={"space-between"} align={"center"}>
-          <Logo>
-            <a href={"#"}>Vahid Navazan</a>
-          </Logo>
-          <HeaderMenu menuLinks={menuLinks}/>
-        </FlexWrapper>
+        <S.Logo>
+          <S.Name to={"about"} smooth >Vahid Navazan</S.Name>
+        </S.Logo>
+        { width < breakpoint ? <MobileMenu menuLinks={menuLinks} />
+          : <DesktopMenu menuLinks={menuLinks} />
+        }
       </Container>
-    </StyledHeader>
+    </S.Header>
   )
 }
-
-
-const StyledHeader = styled.header`
-  background-color: ${theme.colors.primaryBg};
-  height: 56px;
-  margin: 0 auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99999;
-
-  ${Container} {
-    display: flex;
-    align-items: center;
-
-    ${FlexWrapper} {
-      flex-grow: 1;
-    }
-  }
-  a {
-    color: ${theme.colors.font.major};
-    font-size: 18px;
-  }
-`;
-
-const Logo = styled.span`
-  a {
-    font-family: Comfortaa, sans-serif;
-  }
-`;
