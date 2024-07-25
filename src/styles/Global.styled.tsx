@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     text-align: center;
   }
 
-  a:visited {
+  a:visited, a:link {
     color: ${theme.colors.font.major}
   }
 
