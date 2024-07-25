@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.31d6cfe0.css",
+    "main.js": "/portfolio/static/js/main.08a61322.js",
+    "static/js/787.6658d8b7.chunk.js": "/portfolio/static/js/787.6658d8b7.chunk.js",
+    "static/media/projects-first-compressed.webp": "/portfolio/static/media/projects-first-compressed.2689aadcabbfd4937b40.webp",
+    "static/media/modifiedSprite.svg": "/portfolio/static/media/modifiedSprite.697667db075d198264014541ecd10d9a.svg",
+    "static/media/main-image-compressed.webp": "/portfolio/static/media/main-image-compressed.15b850c3403473d86d29.webp",
+    "static/media/projects-second-compressed.webp": "/portfolio/static/media/projects-second-compressed.0b914327eb4e119b8fa4.webp",
+    "static/media/projects-third-compressed.webp": "/portfolio/static/media/projects-third-compressed.f328dcaa3d0822a698ee.webp",
+    "static/media/cib_greensock.svg": "/portfolio/static/media/cib_greensock.964a2a5062cc1e4d65bd9d422e8ffb3d.svg",
+    "static/media/logos_sass.svg": "/portfolio/static/media/logos_sass.b6bd53da338168ab2b1742b99908e650.svg",
+    "static/media/logos_react.svg": "/portfolio/static/media/logos_react.38be059e40a72f551d8a7c8a3898a6aa.svg",
+    "static/media/vscode-icons_file-type-vscode.svg": "/portfolio/static/media/vscode-icons_file-type-vscode.7a2e35c079cc05d54679e2d8cea1ff31.svg",
+    "static/media/Vector.svg": "/portfolio/static/media/Vector.3b188e227c03e45ee5a5a2acd734d9b2.svg",
+    "static/media/logos_bootstrap.svg": "/portfolio/static/media/logos_bootstrap.7da649693fc9bf6ed8ec1bb8439dbd8d.svg",
+    "static/media/vscode-icons_file-type-js-official.svg": "/portfolio/static/media/vscode-icons_file-type-js-official.1ab415fa7305db6759e201011a897ec1.svg",
+    "static/media/logos_git-icon.svg": "/portfolio/static/media/logos_git-icon.e9bf0c5f84dfcebd93ff1640458e122b.svg",
+    "static/media/akar-icons_github-fill.svg": "/portfolio/static/media/akar-icons_github-fill.1bb86cd73751b695a74942ab37ecf4ca.svg",
+    "index.html": "/portfolio/index.html",
+    "static/media/vscode-icons_file-type-css.svg": "/portfolio/static/media/vscode-icons_file-type-css.29a8434ff45a4b32635b992f9423b445.svg",
+    "static/media/vscode-icons_file-type-html.svg": "/portfolio/static/media/vscode-icons_file-type-html.9ef3bd4f6eef0c6962cbc19c655080db.svg",
+    "static/media/vscode-icons_file-type-tailwind.svg": "/portfolio/static/media/vscode-icons_file-type-tailwind.941bd53345996af6eae57658c8bffd9f.svg",
+    "static/media/yellow-bg-full.svg": "/portfolio/static/media/yellow-bg-full.09e58ccac0b988c52ba04c7b19ca9e84.svg",
+    "static/media/footerSvg.svg": "/portfolio/static/media/footerSvg.f780a34b027380c865ba6682bd046603.svg",
+    "main.08a61322.js.map": "/portfolio/static/js/main.08a61322.js.map",
+    "787.6658d8b7.chunk.js.map": "/portfolio/static/js/787.6658d8b7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.08a61322.js"
+  ]
+}
